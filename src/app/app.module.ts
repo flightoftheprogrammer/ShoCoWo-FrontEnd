@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { 
   MatToolbarModule, 
@@ -10,13 +10,18 @@ import {
   MatFormFieldModule,
   MatInputModule 
 } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { AuthService } from './services/auth.service';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
   //{ path: '**', component: RegistrationComponent }
 ]
 
@@ -24,12 +29,14 @@ const routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -37,7 +44,9 @@ const routes = [
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
