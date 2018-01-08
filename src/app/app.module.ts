@@ -30,7 +30,7 @@ const routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
