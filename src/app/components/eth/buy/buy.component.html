@@ -1,6 +1,7 @@
 <section>
     <div>
         <h1>Buy Ethereum</h1>
+        <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
         <h3>Current Price</h3>
         <div *ngIf="cryptos">
             <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
