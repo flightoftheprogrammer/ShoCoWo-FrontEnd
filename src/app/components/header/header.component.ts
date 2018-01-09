@@ -13,8 +13,4 @@ export class HeaderComponent {
   ngOnInit() {
   }
 
-  isLoggedIn(): void {
-    this.authorized = !this.authorized;
-  }
-
 }

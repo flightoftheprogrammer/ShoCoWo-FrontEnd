@@ -1,0 +1,16 @@
+<section>
+  <div>
+    <h1>Buy Bitcoin!</h1>
+    <h3>Current Price</h3>
+    <div *ngIf="cryptos">
+        <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+          <span class="left">{{ crypto }}</span>
+          <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
+        </div>
+      </div>
+    <br>
+    <input placeholder="Enter Amount" type="number">
+    <p>Value: {{num1 * cryptos[crypto].USD }}</p>
+    <button type="submit">Buy!</button>
+  </div>
+</section>
