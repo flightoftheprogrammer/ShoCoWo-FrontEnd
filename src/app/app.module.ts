@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { 
   MatToolbarModule, 
@@ -36,6 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthService } from './services/auth.service';
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { CryptoService } from './services/crypto.service';
 
 
 
@@ -108,10 +110,12 @@ const routes = [
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    CryptoService
   ],
   bootstrap: [AppComponent]
 })
