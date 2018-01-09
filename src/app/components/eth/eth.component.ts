@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './eth.component.html',
   styleUrls: ['./eth.component.css']
 })
-export class EthComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+export class EthComponent {
 
 }
