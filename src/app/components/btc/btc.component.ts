@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartService } from '../../services/chart.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-btc',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BtcComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _chart: ChartService) {}
 
   ngOnInit() {
-  }
-
+    this._chart.dailyBtcPrice()
+       .subscribe(res => {
+         console.log(res)
+ 
+         let temp_max = res['list'].map(res => res.main)
+       })
+   }
 }
