@@ -12,6 +12,7 @@ export class BuyBtcComponent {
 
   objectKeys = Object.keys;
   cryptos: any;
+  cryptoPrice: number = 0;
 
   constructor (private _data: CryptoService) {
 

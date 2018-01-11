@@ -11,6 +11,7 @@ export class SellEthComponent implements OnInit {
 
   objectKeys = Object.keys;
   cryptos: any;
+  cryptoPrice: number = 0;
 
   constructor (private _data: CryptoService) {
 

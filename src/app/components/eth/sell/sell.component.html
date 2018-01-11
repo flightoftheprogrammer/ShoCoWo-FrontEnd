@@ -1,17 +1,25 @@
-<section>
+<section id="page">
   <div>
-      <h1>Sell Ethereum</h1>
-      <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
-      <h3>Current Price</h3>
-      <div *ngIf="cryptos">
-        <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
-          <span class="left">{{ crypto }}</span>
-          <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
-        </div>
+    <h1>Sell Ethereum</h1>
+    <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
+    <div *ngIf="cryptos">
+      <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+        <span class="left">Current price of {{ crypto }}:</span>
+        <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
       </div>
-      <br>
-      <input placeholder="Enter Amount" type="number">
-      <p>Value: {{num1 * cryptos[crypto].USD }}</p>
-      <button type="submit">Sell!</button>
+    </div>
+    <div>
+      <mat-form-field>
+        <input [(ngModel)]='cryptoPrice' type="number" placeholder="Enter ETH Amount">
+        <div *ngIf="cryptos">
+          <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
+            <br>
+            <span class="right">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
+          </div>
+        </div>
+        <br>
+        <button mat-raised-button type="submit">Sell!</button>
+      </mat-form-field>
+    </div>
   </div>
 </section>

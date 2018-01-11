@@ -5,11 +5,5 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './btc.component.html',
   styleUrls: ['./btc.component.css']
 })
-export class BtcComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class BtcComponent {
 }
