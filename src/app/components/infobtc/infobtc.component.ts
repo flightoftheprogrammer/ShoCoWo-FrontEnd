@@ -17,12 +17,7 @@ export class InfobtcComponent implements OnInit {
     this._chart.dailyBtcPrice()
        .subscribe(res => {
          console.log(res);
-         console.log(res.bpi);
-
-        var response = res.bpi;
-        //  let btcHistory = res['bpi.json'].map(res => res.bpi)
-         console.log('attempt: ' Array.from(response));
-        // console.log(btcHistory);
+      
 
       })
     }
