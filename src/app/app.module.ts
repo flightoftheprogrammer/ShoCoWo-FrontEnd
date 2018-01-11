@@ -38,9 +38,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AuthService } from './services/auth.service';
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AuthGuard } from './guards/auth.guards';
 import { CryptoService } from './services/crypto.service';
-
-
+import { ChartService } from './services/chart.service';
 
 
 const routes = [
@@ -50,7 +50,7 @@ const routes = [
   { path: 'infobtc', component: InfobtcComponent },
   { path: 'infoeth', component: InfoethComponent },
   { 
-    path: 'btc', children: [
+    path: 'btc', canActivate: [AuthGuard] , children: [
       { path: '', component: BtcComponent },
       { path: 'buy', component: BuyBtcComponent},
       { path: 'sell', component: SellBtcComponent},
@@ -58,7 +58,7 @@ const routes = [
     ]
   },
   { 
-    path: 'eth', children: [
+    path: 'eth', canActivate: [AuthGuard] , children: [
       { path: '', component: EthComponent },
       { path: 'buy', component: BuyEthComponent},
       { path: 'sell', component: SellEthComponent},
@@ -66,13 +66,13 @@ const routes = [
     ]
   },
   { 
-    path: 'wallet', children: [
+    path: 'wallet', canActivate: [AuthGuard] , children: [
      { path: '', component: WalletComponent},
      { path: 'holdings', component:HoldingsComponent},
      { path: 'transactions', component:TransactionsComponent},
     ]
   },
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profile',  component: ProfileComponent},
   { path: '**', component:HomeComponent}
 ]
 
@@ -117,7 +117,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    CryptoService
+    ChartService,
+    CryptoService,
   ],
   bootstrap: [AppComponent]
 })
