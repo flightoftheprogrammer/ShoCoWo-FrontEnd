@@ -15,6 +15,7 @@ export class InfobtcComponent implements OnInit {
   constructor(private _chart: ChartService) {}
 
   ngOnInit() {
+    
     this._chart.dailyBtcPrice()
       .subscribe(res => {
         this.chart = [];
@@ -30,10 +31,52 @@ export class InfobtcComponent implements OnInit {
             value: res['bpi'][eachDate]
           });
         })
-         this.chart.forEach(x => {
-          console.log(x['date'])
-          console.log(x['value'])
-         })
+         //this.chart.forEach(x => {
+            // console.log(x['date'])
+            // console.log(x['value'])
+          //})
+
+          let priceArray =  []
+            this.chart.forEach(x => {
+              priceArray.push(x['value'])
+            })
+
+          console.log(priceArray)
+
+          let dateArray = []
+          this.chart.forEach(x => {
+            dateArray.push(x['date'])
+          })
+          
+          console.log(dateArray)
+        
+        this.chart = new Chart( 'canvas' , {
+         type: 'line',
+         data: {
+           labels: dateArray,
+           datasets:[
+             {
+               data: priceArray,
+               borderColor:'#3cba9f',
+               fill: true
+             }
+           ]
+          },
+          options: {
+            legend:{
+              display: false
+            },
+            scales:{
+              xAxes:[{
+                display: true
+              }],
+              yAxes:[{
+                display: true
+              }]
+            }
+          }
+        });
+
 
 
         // let values = Object.values(res);
@@ -48,31 +91,7 @@ export class InfobtcComponent implements OnInit {
         // console.log('here are values', allValuesFromObject[0]);
         // console.log('Here are keys', allKeysFromObject);
 
-      //  var response = { 'date' : 'price',};
-      //  var keys = Object.keys(response);
-
-      //var response = res.bpi;
-      //  let btcHistory = res['bpi.json'].map(res => res.bpi)
-      // console.log('attempt: ' Array.from(response));
-      // console.log(btcHistory)
-
-
-      //  this.chart = new Chart('canavas', {
-      //    type: 'line',
-      //    data: {
-      //      labels: this.btcDate,
-      //      datasets:[
-      //        {
-      //          data: this.btcDate,
-      //          borderColor:'#3cba9f',
-      //          fill: false
-      //        },
-      //        {
-      //          data: this.btcPrice,
-      //          borderColor: '#ff'
-      //        }
-      //      ]
-      //    }
+     
       })
   }
 }
