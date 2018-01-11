@@ -1,4 +1,44 @@
 #page {
     width: 70%;
-    margin: 0 auto 0 auto;
+    margin: 2em auto;
+    text-align: center;
+    /* border: 5px solid #3F51B5;
+    border-radius: 8px; */
+}
+
+#crypto-container {
+    margin: 1em auto;
+    /* border-bottom: 5px solid #3F51B5; */
+}
+
+#btcBuyForm {
+    /* border: 5px solid #3F51B5;
+    border-radius: 10px; */
+}
+
+span.left {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+span.right {
+    font-size: 24px;
+}
+
+.buyButton{
+    margin: 2em auto;
+}
+
+.buyInput{
+    width: 40%;
+    font-size: 24px;
+}
+
+.buyOutput{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.pageTitle {
+    font-size: 50px;
 }

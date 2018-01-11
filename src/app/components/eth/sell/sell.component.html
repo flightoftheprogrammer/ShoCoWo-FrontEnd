@@ -1,25 +1,29 @@
 <section id="page">
-  <div>
-    <h1>Sell Ethereum</h1>
-    <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
-    <div *ngIf="cryptos">
-      <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
-        <span class="left">Current price of {{ crypto }}:</span>
-        <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
-      </div>
-    </div>
     <div>
-      <mat-form-field>
-        <input [(ngModel)]='cryptoPrice' type="number" placeholder="Enter ETH Amount">
+      <mat-card>
+      <h1 class="pageTitle">Sell Ethereum!</h1>
+      <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
+      <mat-card class="btcBuyForm">
         <div *ngIf="cryptos">
-          <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
-            <br>
-            <span class="right">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
+          <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
+            <span class="left">Current Price of {{ crypto }}:</span>
+            <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
           </div>
         </div>
-        <br>
-        <button mat-raised-button type="submit">Sell!</button>
-      </mat-form-field>
+        <div>
+          <mat-form-field class="buyInput">
+              <input matInput [(ngModel)]='cryptoPrice' type="number" placeholder="Amount">
+              <span matPrefix>Ξ</span>
+          </mat-form-field>
+            <div *ngIf="cryptos">
+              <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
+                <span class="buyOutput">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
+              </div>
+            </div>
+            <br>
+            <button class="buyButton" mat-raised-button type="submit">Sell!</button>
+          </div>
+        </mat-card>
+      </mat-card>
     </div>
-  </div>
-</section>
+  </section>
