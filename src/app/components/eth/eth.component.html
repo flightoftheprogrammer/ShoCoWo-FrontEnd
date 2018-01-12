@@ -1,3 +1,7 @@
 <button mat-raised-button class="nav-btn" routerLink="/eth/buy">Buy ETH!</button>
 <button mat-raised-button class="nav-btn" routerLink="/eth/sell">Sell ETH!</button>
 
+<div *ngIf="chart">
+  <canvas id="canvas" >{{ chart }}</canvas>
+</div>
+

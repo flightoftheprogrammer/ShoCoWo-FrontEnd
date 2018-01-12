@@ -9,7 +9,8 @@ import {
   MatToolbarModule, 
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule 
+  MatInputModule, 
+  MatCardModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -49,7 +50,7 @@ const routes = [
   { path: 'infobtc', component: InfobtcComponent },
   { path: 'infoeth', component: InfoethComponent },
   { 
-    path: 'btc', canActivate: [AuthGuard] , children: [
+    path: 'btc', children: [
       { path: '', component: BtcComponent },
       { path: 'buy', component: BuyBtcComponent},
       { path: 'sell', component: SellBtcComponent},
@@ -111,6 +112,7 @@ const routes = [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     HttpModule
   ],
   providers: [
