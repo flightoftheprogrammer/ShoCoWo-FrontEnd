@@ -7,8 +7,9 @@ import { Chart } from 'chart.js';
   templateUrl: './btc.component.html',
   styleUrls: ['./btc.component.css']
 })
-export class BtcComponent implements OnInit {
 
+export class BtcComponent implements OnInit {
+  
   chart = [];
 
   constructor(private _chart: ChartService) {}

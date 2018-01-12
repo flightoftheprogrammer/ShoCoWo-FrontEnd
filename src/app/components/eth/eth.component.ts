@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
   templateUrl: './eth.component.html',
   styleUrls: ['./eth.component.css']
 })
+
 export class EthComponent implements OnInit {
 
   chart = [];
@@ -61,5 +62,4 @@ export class EthComponent implements OnInit {
 
       })
   }
-
 }

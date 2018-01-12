@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { 
   MatToolbarModule, 
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule 
+  MatInputModule, 
+  MatCardModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -37,7 +39,7 @@ import { AuthService } from './services/auth.service';
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './guards/auth.guards';
-
+import { CryptoService } from './services/crypto.service';
 import { ChartService } from './services/chart.service';
 
 
@@ -109,11 +111,14 @@ const routes = [
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    HttpModule
   ],
   providers: [
     AuthService,
     ChartService,
+    CryptoService,
   ],
   bootstrap: [AppComponent]
 })
