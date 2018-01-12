@@ -50,7 +50,7 @@ const routes = [
   { path: 'infobtc', component: InfobtcComponent },
   { path: 'infoeth', component: InfoethComponent },
   { 
-    path: 'btc', canActivate: [AuthGuard] , children: [
+    path: 'btc', children: [
       { path: '', component: BtcComponent },
       { path: 'buy', component: BuyBtcComponent},
       { path: 'sell', component: SellBtcComponent},

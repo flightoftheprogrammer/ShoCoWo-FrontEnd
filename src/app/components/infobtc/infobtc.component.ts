@@ -19,7 +19,7 @@ export class InfobtcComponent implements OnInit {
     this._chart.dailyBtcPrice()
       .subscribe(res => {
         this.chart = [];
-        console.log(res['bpi']);
+        //console.log(res['bpi']);
         
         Object.keys(res['bpi']).forEach( eachDate => {
           // console.log('eachDate is:')
@@ -41,14 +41,14 @@ export class InfobtcComponent implements OnInit {
               priceArray.push(x['value'])
             })
 
-          console.log(priceArray)
+          //console.log(priceArray)
 
           let dateArray = []
           this.chart.forEach(x => {
             dateArray.push(x['date'])
           })
           
-          console.log(dateArray)
+          //console.log(dateArray)
         
         this.chart = new Chart( 'canvas' , {
          type: 'line',
