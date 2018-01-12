@@ -1,9 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { encode } from '@angular/router/src/url_tree';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 

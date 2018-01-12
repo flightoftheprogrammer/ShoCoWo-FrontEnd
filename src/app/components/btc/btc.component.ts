@@ -7,16 +7,7 @@ import { Chart } from 'chart.js';
   templateUrl: './btc.component.html',
   styleUrls: ['./btc.component.css']
 })
-export class BtcComponent implements OnInit {
 
-  constructor(private _chart: ChartService) {}
+export class BtcComponent {
 
-  ngOnInit() {
-    this._chart.dailyBtcPrice()
-       .subscribe(res => {
-         console.log(res)
- 
-         let temp_max = res['list'].map(res => res.main)
-       })
-   }
 }
