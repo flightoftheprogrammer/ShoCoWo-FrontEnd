@@ -9,7 +9,12 @@ export class ChartService {
 
     dailyBtcPrice() {
         return this._http.get("https://api.coindesk.com/v1/bpi/historical/close.json")
-            .map(result =>result);
+            .map(result => result);
+    }
+
+    dailyEthPrice() {
+        return this._http.get("https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=30&aggregate=1&e=CCCAGG")
+            .map(result => result);
     }
 
 }
