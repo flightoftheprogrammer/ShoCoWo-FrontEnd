@@ -11,6 +11,7 @@
   }
 
 .wrapper{
+    padding-top: 3em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center; 
@@ -35,9 +36,7 @@ button{
     color : #e8edf3;
     justify-content: center;
     z-index: 2;
-    background-image: 
-
-}
+ }
 .bitCoinBox{
     flex: 1;
     justify-content: space-around; 
@@ -59,8 +58,15 @@ button{
 }
 .mat-card-image{
     height: 200px;
-    width: 350px;
+    width: 348px;
 }
-.mat-card.mat-card{
-    padding-top: 25px;
+image.mat-card-image{
+    justify-content: center;
+}
+mat-card-content.mat-card-content{
+    justify-content: center;
+}
+
+.card{
+    padding-top: 2em;
 }
