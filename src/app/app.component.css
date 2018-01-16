@@ -1,0 +1,24 @@
+* {
+    position: relative;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "content"
+    "footer";
+}
+
+app-header {
+    grid-area: header;
+}
+
+router-outlet{
+    grid-area: content;
+}
+
+app-footer {
+    grid-area: footer;
+}

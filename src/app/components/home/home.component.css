@@ -1,32 +1,66 @@
-.mainScreen{
- display: flex;
+
+#centerTextWrapper {
+    display: flex;
+    justify-content: center;
+    color: white; 
+}
+#centerWrapper {
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center; 
+    justify-items: center;
+    height: 1300px;
+    z-index: 2;
+    background-color: #e6cf8b;
 
 }
-.container{
-    justify-content: space-around;
+
+button{
+    background-color: white;
 }
 .card {
     width: 300px;
     height: 500px;
-    box-shadow: 3px;
+    border: 3px;
     border : black;
-    font-size: 12px;
-    color : white;
+    border-radius: 1em;
+    font-size: 22px;
+    background-color: #b56969;
+    color : #e8edf3;
+    justify-content: center;
+    z-index: 2;
+    background-image: 
 
 }
 .bitCoinBox{
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-around; 
 }
+
 .ethereumBox{
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-around; 
 }
+
 .box3{
     flex: 1;
     justify-content: space-around; 
 }
+
 .titlebar {
     background-clip: border-box;
-    background-color: darkblue;
+    background-color: #3F51B5;
+}
+.mat-card-image{
+    height: 200px;
+    width: 350px;
+}
+.mat-card.mat-card{
+    padding-top: 25px;
 }
