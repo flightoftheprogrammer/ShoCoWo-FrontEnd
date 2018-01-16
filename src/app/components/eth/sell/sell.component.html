@@ -1,6 +1,6 @@
 <section id="page">
-    <div>
-      <mat-card>
+  <div>
+    <mat-card>
       <h1 class="pageTitle">Sell Ethereum!</h1>
       <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
       <mat-card class="btcBuyForm">
@@ -12,21 +12,21 @@
         </div>
         <div>
           <mat-form-field class="buyInput">
-              <input matInput [(ngModel)]='cryptoPrice' type="number" placeholder="Amount">
-              <span matPrefix>Ξ</span>
+            <input matInput [(ngModel)]='cryptoPrice' type="number" placeholder="Amount">
+            <span matPrefix>Ξ</span>
           </mat-form-field>
             <div *ngIf="cryptos">
-              <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
-                <span class="buyOutput">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
-              </div>
+            <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
+              <span class="buyOutput">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
             </div>
-            <br>
-            <button class="buyButton" mat-raised-button type="submit">Sell</button>
-            <span>
-              <button class="buyButton" mat-raised-button routerLink="/eth">Cancel</button>
-            </span>
           </div>
-        </mat-card>
+          <br>
+          <button class="buyButton" mat-raised-button type="submit">Sell</button>
+          <span>
+            <button class="buyButton" mat-raised-button routerLink="/eth">Cancel</button>
+          </span>
+        </div>
       </mat-card>
-    </div>
-  </section>
+    </mat-card>
+  </div>
+</section>
