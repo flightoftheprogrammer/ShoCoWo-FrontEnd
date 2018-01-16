@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files
+/* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 body, html{
@@ -7,7 +7,7 @@ body, html{
     font-family: 'Roboto', 'Arial', sans-serif;
 }
 
-
+/*
 body::before {
     background-size: cover;
     background-attachment: fixed;
