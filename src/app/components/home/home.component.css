@@ -1,0 +1,32 @@
+.mainScreen{
+ display: flex;
+
+}
+.container{
+    justify-content: space-around;
+}
+.card {
+    width: 300px;
+    height: 500px;
+    box-shadow: 3px;
+    border : black;
+    font-size: 12px;
+    color : white;
+
+}
+.bitCoinBox{
+    flex: 1;
+    justify-content: space-around;
+}
+.ethereumBox{
+    flex: 1;
+    justify-content: space-around;
+}
+.box3{
+    flex: 1;
+    justify-content: space-around; 
+}
+.titlebar {
+    background-clip: border-box;
+    background-color: darkblue;
+}
