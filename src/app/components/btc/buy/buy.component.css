@@ -1,19 +1,17 @@
-#page {
+#buyPage {
     width: 70%;
+    height: 81%;
     margin: 2em auto;
     text-align: center;
-    /* border: 5px solid #3F51B5;
-    border-radius: 8px; */
+}
+
+#buyCard {
+    height: 90%;
+    background-color: #C5CAE9;
 }
 
 #crypto-container {
     margin: 1em auto;
-    /* border-bottom: 5px solid #3F51B5; */
-}
-
-#btcBuyForm {
-    /* border: 5px solid #3F51B5;
-    border-radius: 10px; */
 }
 
 span.left {
@@ -25,7 +23,8 @@ span.right {
     font-size: 24px;
 }
 
-.buyButton{
+.buyButton {
+    background-color: rgb(45, 171, 255);
     margin: 2em auto;
 }
 
