@@ -58,7 +58,7 @@ const routes = [
     ]
   },
   { 
-    path: 'eth', canActivate: [AuthGuard] ,  children: [
+    path: 'eth', canActivate: [AuthGuard] , children: [
       { path: '', component: EthComponent },
       { path: 'buy', component: BuyEthComponent},
       { path: 'sell', component: SellEthComponent},

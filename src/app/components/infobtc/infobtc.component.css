@@ -1,0 +1,46 @@
+.btcGrid {
+    display: grid;
+    height: 88%;
+    grid-template-columns: 1em 58% 1em 39% 1em;
+    grid-template-areas:
+    ". left . right ."
+    ". left . right ."
+    ". left . right ."; 
+}
+
+.btcActions {
+    grid-area: left;
+    margin: 1em 0em;
+}
+
+.btcInfo {
+    grid-area: right;
+    margin: 1em 0em;
+}
+
+
+.btc-header-image {
+    background-image: url('https://bitcoin.org/img/icons/opengraph.png');
+    background-size: cover;
+}
+
+.btcinfo-header-image {
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/253190/1466703414.png');
+    background-size: cover;
+}
+
+mat-card {
+    background-color: #C5CAE9;
+}
+
+mat-card-content {
+    background-color:#E8EAF6;
+}
+
+p {
+    font-weight: bold;
+}
+
+mat-card-title {
+    font-weight: bolder;
+}
