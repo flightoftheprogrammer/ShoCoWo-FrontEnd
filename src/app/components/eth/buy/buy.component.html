@@ -1,9 +1,9 @@
-<section id="page">
+<section id="buyPage">
         <div>
-          <mat-card>
+          <mat-card id="buyCard">
           <h1 class="pageTitle">Buy Ethereum!</h1>
           <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
-          <mat-card class="btcBuyForm">
+          <mat-card class="ethBuyForm">
             <div *ngIf="cryptos">
               <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
                 <span class="left">Current Price of {{ crypto }}:</span>
@@ -21,7 +21,7 @@
                   </div>
                 </div>
                 <br>
-                <button class="buyButton" mat-raised-button type="submit">Buy!</button>
+                <button class="buyButton" mat-raised-button type="submit" color="primary">Buy!</button>
               </div>
             </mat-card>
           </mat-card>
