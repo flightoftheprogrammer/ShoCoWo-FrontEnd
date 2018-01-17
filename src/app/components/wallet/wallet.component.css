@@ -1,0 +1,94 @@
+/*
+
+#showcase {
+    min-height: 450px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  #showcase .bg-image {
+    position: absolute;
+    background-image: "/../../assets/images/road.jpg";
+    background: #333;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    z-index: -1;
+    opacity: 0.4;
+  }
+  
+  #showcase h1 {
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
+  
+  #showcase .content-wrap,
+  #section-a .content-wrap {
+    padding: 0 1.5em;
+  } 
+*/
+
+#centerTextWrapper {
+    display: flex;
+    justify-content: center;
+    color: white; 
+}
+#centerWrapper {
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center; 
+    justify-items: center;
+    height: 1300px;
+ 
+    z-index: 2;
+    background-image: "Photo by Kaique Rocha from Pexels https://www.pexels.com/photo/person-holding-silver-iphone-6-taking-photo-105254/";
+    background-color: #e6cf8b;
+
+}
+.card {
+    width: 200px;
+    height: 500px;
+    border: 3px;
+    border : black;
+    border-radius: 1em;
+    font-size: 22px;
+    background-color: #a71010;
+    color : #e8edf3;
+    justify-content: center;
+    z-index: 2
+
+}
+.bitCoinBox{
+    flex: 1;
+    justify-content: space-around; 
+}
+
+.ethereumBox{
+    flex: 1;
+    justify-content: space-around; 
+}
+
+.box3{
+    flex: 1;
+    justify-content: space-around; 
+}
+
+.titlebar {
+    background-clip: border-box;
+    background-color: #22264b;
+}
+/* .mat-card-image{
+    height: 200px;
+    width: 350px;
+} */
+.mat-card.mat-card{
+    padding-top: 25px;
+}

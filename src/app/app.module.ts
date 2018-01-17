@@ -66,7 +66,7 @@ const routes = [
     ]
   },
   { 
-    path: 'wallet', children: [
+    path: 'wallet' , canActivate: [AuthGuard] , children: [
      { path: '', component: WalletComponent},
      { path: 'holdings', component:HoldingsComponent},
      { path: 'transactions', component:TransactionsComponent},

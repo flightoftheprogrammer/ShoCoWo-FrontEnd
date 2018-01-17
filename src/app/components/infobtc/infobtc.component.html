@@ -1,3 +1,24 @@
-<div *ngIf="chart">
-  <canvas id="canvas" >{{ chart }}</canvas>
-</div>
+<div class="btcGrid">
+    <mat-card class="btcActions">
+      <mat-card-header>
+        <div mat-card-avatar class="btc-header-image"></div>
+        <mat-card-title>BitCoin</mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <div *ngIf="chart">
+          <canvas id="canvas" >{{ chart }}</canvas>
+        </div>      
+      </mat-card-content>
+  
+      <p>Past 30 days of BitCoin Prices</p>
+  
+    </mat-card>
+      
+    <mat-card class="btcInfo">
+      <mat-card-header>
+        <div mat-card-avatar class="btcinfo-header-image"></div>
+        <mat-card-title>Information on Bitcoin</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>

@@ -1,7 +1,29 @@
-<button mat-raised-button class="nav-btn" routerLink="/eth/buy">Buy ETH!</button>
-<button mat-raised-button class="nav-btn" routerLink="/eth/sell">Sell ETH!</button>
+<div class="ethGrid">
+    <mat-card class="ethActions">
+      <mat-card-header>
+        <div mat-card-avatar class="eth-header-image"></div>
+        <mat-card-title>Ethereum</mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <div *ngIf="chart">
+          <canvas id="canvas" >{{ chart }}</canvas>
+        </div>
+      </mat-card-content>  
 
-<div *ngIf="chart">
-  <canvas id="canvas" >{{ chart }}</canvas>
-</div>
+      <p>Past 30 days of Ethereum Prices</p>
 
+      <mat-card-actions>
+          <button mat-raised-button class="nav-btn" color="primary" routerLink="/eth/buy">Buy!</button>
+          <button mat-raised-button class="nav-btn" color="primary" routerLink="/eth/sell">Sell!</button>
+        </mat-card-actions>
+    </mat-card>
+      
+    <mat-card class="walletInfo">
+      <mat-card-header>
+        <div mat-card-avatar class="wallet-header-image"></div>
+        <mat-card-title>My Wallet</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  
