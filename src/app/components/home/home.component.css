@@ -1,72 +1,61 @@
-
 #centerTextWrapper {
     display: flex;
     justify-content: center;
     color: white; 
 }
+
 #centerWrapper {
     display: flex;
     justify-content: center;
     color: black;
-  }
+}
 
-.wrapper{
-    padding-top: 3em;
+.wrapper {
+    height: 88%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center; 
-    justify-items: center;
-    height: 1300px;
-    z-index: 2;
-    background-color: #e6cf8b;
-
+    justify-content: center;
+    grid-template-columns: 1em 1fr 1em 1fr 1em 1fr 1em;
+    grid-template-areas:
+    ". right . center . left .";
 }
 
-button{
-    background-color: white;
+.bitcoinColumn {
+    grid-area: right;
+    margin: 1em;  
 }
+
+.ethereumColumn {
+    grid-area: center;
+    margin: 1em;    
+}
+
+.newsColumn {
+    grid-area: left;
+    margin: 1em 0em;
+}
+
 .card {
-    width: 300px;
-    height: 500px;
-    border: 3px;
-    border : black;
-    border-radius: 1em;
+    height: 94%;
     font-size: 22px;
-    background-color: #b56969;
+    background-color: #C5CAE9;
     color : #e8edf3;
-    justify-content: center;
-    z-index: 2;
  }
-.bitCoinBox{
-    flex: 2;
-    justify-content: space-around; 
+
+mat-card-image {
+    height: 10rem;
 }
 
-.ethereumBox{
-    flex: 1;
-    justify-content: space-around; 
+.btc-header-image {
+    background-image: url('https://bitcoin.org/img/icons/opengraph.png');
+    background-size: cover;
 }
 
-.box3{
-    flex: 1;
-    justify-content: space-around; 
+.eth-header-image {
+    background-image: url('https://user-images.githubusercontent.com/5788982/27623008-a5e8c956-5bda-11e7-9246-d17205287ad3.png');
+    background-size: cover;
 }
 
-.titlebar {
-    background-clip: border-box;
-    background-color: #3F51B5;
-}
-.mat-card-image{
-    height: 200px;
-    width: 348px;
-}
-image.mat-card-image{
-    justify-content: center;
-}
-mat-card-content.mat-card-content{
-    justify-content: center;
-}
-
-.card{
-    padding-top: 2em;
+.info-header-image {
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/253190/1466703414.png');
+    background-size: cover;
 }
