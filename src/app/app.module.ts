@@ -10,7 +10,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule, 
-  MatCardModule
+  MatCardModule,
+  MatTableModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -41,6 +42,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './guards/auth.guards';
 import { CryptoService } from './services/crypto.service';
 import { ChartService } from './services/chart.service';
+import { WalletService } from './services/wallet.service';
 
 
 const routes = [
@@ -66,7 +68,7 @@ const routes = [
     ]
   },
   { 
-    path: 'wallet' ,  canActivate: [AuthGuard] ,  children: [
+    path: 'wallet' ,   children: [
      { path: '', component: WalletComponent},
      { path: 'holdings', component:HoldingsComponent},
      { path: 'transactions', component:TransactionsComponent},
@@ -113,12 +115,14 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    HttpModule
+    HttpModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
     ChartService,
     CryptoService,
+    WalletService
   ],
   bootstrap: [AppComponent]
 })

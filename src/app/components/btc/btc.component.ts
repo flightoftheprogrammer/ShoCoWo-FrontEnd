@@ -1,6 +1,14 @@
+import { Wallet } from './../../models/wallet';
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from '../../services/chart.service';
 import { Chart } from 'chart.js';
+import {MatTableModule} from '@angular/material/table';
+import { DataSource } from '@angular/cdk/collections';
+import { Observable }from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import { WalletService } from '../../services/wallet.service';
+
+
 
 @Component({
   selector: 'app-btc',
@@ -9,12 +17,16 @@ import { Chart } from 'chart.js';
 })
 
 export class BtcComponent implements OnInit {
-  
+     displayedColumns = ['price', 'cryptoAmount', 'marketValue', 'transactionDate'];
   chart = [];
-
-  constructor(private _chart: ChartService) {}
+  dataSource : DataSource<any> | null;
+  constructor(private _chart: ChartService, private _wallet: WalletService) {}
 
   ngOnInit() {
+    this._wallet.getWallet().subscribe((Wallet: Wallet[])=>{
+    this.dataSource = new TransactionDataSource(Wallet);
+    });
+
     this._chart.dailyBtcPrice()
       .subscribe(res => {
         this.chart = [];
@@ -65,4 +77,14 @@ export class BtcComponent implements OnInit {
       });
     
   }
+}
+
+export class TransactionDataSource extends DataSource<any> {
+  constructor(private walletData: Wallet[]){
+    super();
+  }
+  connect(): Observable<Wallet[]> {
+    return Observable.of(this.walletData);
+  }
+  disconnect() { }
 }

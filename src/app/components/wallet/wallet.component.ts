@@ -3,6 +3,9 @@ import { BackendService } from '../../services/backend.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CurrencyService } from '../../services/currency.service';
 
+import { ActivatedRoute } from '@angular/router';
+import { WalletService } from '../../services/wallet.service';
+import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-wallet',
@@ -10,12 +13,17 @@ import { CurrencyService } from '../../services/currency.service';
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.css']
 })
-export class WalletComponent implements OnInit {
 
-  constructor(private _backend: BackendService, private _currency: CurrencyService) { }
+export class WalletComponent implements OnInit, AfterViewInit {
+  wallet
+  constructor(private route: ActivatedRoute, private _backend: BackendService, private _currency: CurrencyService,
+    private WalletService: WalletService) { }
 
   ngOnInit() {
+    this.wallet = this.route.snapshot.data["wallet"];
   }
+
+  ngAfterViewInit() { }
 
   getWallet() {
     this._backend.getWallet().subscribe(
@@ -25,7 +33,7 @@ export class WalletComponent implements OnInit {
         console.log(value);
       },
       err => { console.log('Error in subscription:'); console.log(err); },
-      () => console.log('Subscription completed!') 
+      () => console.log('Subscription completed!')
     )
   }
 
@@ -33,7 +41,7 @@ export class WalletComponent implements OnInit {
     this._backend.updateWalletBalance(3.5).subscribe(value => console.log(value))
   }
 
-  getWalletTransactions(){
+  getWalletTransactions() {
     this._backend.getWalletTransaction().subscribe(
       value => {
         console.log('We got an value from the backend!');
@@ -57,7 +65,7 @@ export class WalletComponent implements OnInit {
     this._currency.addCurrency(currencyNameLong, currencyNameShort).subscribe(value => console.log(value))
   }
 
-  getCurrencies(){
+  getCurrencies() {
     this._currency.getCurrencies().subscribe(
       value => {
         console.log('We got an value from the backend!');
@@ -71,5 +79,5 @@ export class WalletComponent implements OnInit {
 
   getCurrency(id: number) {
     this._currency.getCurrencyId(id).subscribe(value => console.log(value))
-  }  
+  }
 }
