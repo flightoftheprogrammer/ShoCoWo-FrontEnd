@@ -1,6 +1,24 @@
-<p>
-  infoeth works!
-</p>
-<div *ngIf="chart">
-  <canvas id="canvas" >{{ chart }}</canvas>
-</div>
+<div class="ethGrid">
+    <mat-card class="ethActions">
+      <mat-card-header>
+        <div mat-card-avatar class="eth-header-image"></div>
+        <mat-card-title>Ethereum</mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <div *ngIf="chart">
+          <canvas id="canvas" >{{ chart }}</canvas>
+        </div>
+      </mat-card-content>  
+
+      <p>Past 30 days of Ethereum Prices</p>
+
+    </mat-card>
+      
+    <mat-card class="ethInfo">
+      <mat-card-header>
+        <div mat-card-avatar class="ethinfo-header-image"></div>
+        <mat-card-title>Information on Ethereum</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </div>

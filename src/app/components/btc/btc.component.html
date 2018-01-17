@@ -1,7 +1,28 @@
-<button mat-raised-button class="nav-btn" routerLink="/btc/buy">Buy BTC!</button>
-<button mat-raised-button class="nav-btn" routerLink="/btc/sell">Sell BTC!</button>
+<div class="btcGrid">
+  <mat-card class="btcActions">
+    <mat-card-header>
+      <div mat-card-avatar class="btc-header-image"></div>
+      <mat-card-title>BitCoin</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <div *ngIf="chart">
+        <canvas id="canvas" >{{ chart }}</canvas>
+      </div>      
+    </mat-card-content>
 
-<div *ngIf="chart">
-  <canvas id="canvas" >{{ chart }}</canvas>
+    <p>Past 30 days of BitCoin Prices</p>
+
+    <mat-card-actions>
+      <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/buy">Buy!</button>
+      <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/sell">Sell!</button>
+    </mat-card-actions>
+  </mat-card>
+    
+  <mat-card class="walletInfo">
+    <mat-card-header>
+      <div mat-card-avatar class="wallet-header-image"></div>
+      <mat-card-title>My Wallet</mat-card-title>
+    </mat-card-header>
+  </mat-card>
 </div>
-
