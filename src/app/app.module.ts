@@ -46,6 +46,7 @@ import { ChartService } from './services/chart.service';
 
 
 const routes = [
+  { path: 'welcome', component:WelcomeComponent },
   { path: 'home', component:HomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
