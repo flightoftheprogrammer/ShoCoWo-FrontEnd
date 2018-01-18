@@ -28,7 +28,7 @@ export class HoldingService {
     return this._http.post(`${Api_Url}/api/HoldingTransaction`, {"HoldingId": holdingId, "CryptoTransactionAmount": cryptoTransactionAmount, "MarketValue": marketValue} , { headers: this.setHeader() } );
   }
 
-  getHoldingTransactions(holdingId: number) {
+  getHoldingTransactions(holdingId: number): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
     return this._http.get(`${Api_Url}/api/HoldingTransaction/${holdingId}`, { headers: this.setHeader() } );
