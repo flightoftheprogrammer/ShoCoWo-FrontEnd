@@ -36,6 +36,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { AuthService } from './services/auth.service';
+import { HoldingService } from './services/holding.service'
+import { BackendService } from './services/backend.service'
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './guards/auth.guards';
@@ -58,7 +60,8 @@ const routes = [
     ]
   },
   { 
-    path: 'eth' , children: [
+
+    path: 'eth' , canActivate: [AuthGuard] ,  children: [
       { path: '', component: EthComponent },
       { path: 'buy', component: BuyEthComponent},
       { path: 'sell', component: SellEthComponent},
@@ -66,7 +69,7 @@ const routes = [
     ]
   },
   { 
-    path: 'wallet' , canActivate: [AuthGuard] , children: [
+    path: 'wallet' ,  canActivate: [AuthGuard] ,  children: [
      { path: '', component: WalletComponent},
      { path: 'holdings', component:HoldingsComponent},
      { path: 'transactions', component:TransactionsComponent},
@@ -119,6 +122,8 @@ const routes = [
     AuthService,
     ChartService,
     CryptoService,
+    BackendService,
+    HoldingService
   ],
   bootstrap: [AppComponent]
 })

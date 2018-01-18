@@ -13,6 +13,6 @@
 
   <button mat-raised-button class="nav-btn" routerLink="/register" *ngIf='!isLoggedIn'>Register</button>
   <button mat-raised-button class="nav-btn" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
-  <span *ngIf="isLoggedIn">{{username}}</span>
+  <span id="username" *ngIf="isLoggedIn">{{username}}</span>
   <button mat-raised-button class="nav-btn" routerLink="/home" *ngIf="isLoggedIn" (click)="logOut()">Log Out</button>
 </mat-toolbar>
