@@ -37,6 +37,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { AuthService } from './services/auth.service';
+import { HoldingService } from './services/holding.service'
+import { BackendService } from './services/backend.service'
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './guards/auth.guards';
@@ -122,7 +124,8 @@ const routes = [
     AuthService,
     ChartService,
     CryptoService,
-    WalletService
+    BackendService,
+    HoldingService
   ],
   bootstrap: [AppComponent]
 })
