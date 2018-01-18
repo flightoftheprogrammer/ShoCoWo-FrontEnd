@@ -22,6 +22,12 @@ export class HoldingService {
     return this._http.get(`${Api_Url}/api/Holding`, { headers: this.setHeader() } );
   }
 
+  getHoldingByCurrencyId(currencyId: number): Observable<Object> {
+    if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
+
+    return this._http.get(`${Api_Url}/api/Holding?currencyId=${currencyId}`, { headers: this.setHeader() } );
+  }
+
   postHoldingTransaction(holdingId: number, cryptoTransactionAmount: number, marketValue: number): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
