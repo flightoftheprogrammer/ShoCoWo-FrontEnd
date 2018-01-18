@@ -125,7 +125,8 @@ const routes = [
     ChartService,
     CryptoService,
     BackendService,
-    HoldingService
+    HoldingService,
+    WalletService
   ],
   bootstrap: [AppComponent]
 })

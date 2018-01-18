@@ -23,43 +23,40 @@
     <mat-card-header>
       <div mat-card-avatar class="wallet-header-image"></div>
       <mat-card-title>My Wallet<br>
-       <p>Available funds: {{$funds}}</p> 
+       <p>Available funds: {{availableFunds | currency: "USD"}}</p> 
+
+       <p>Total Bitcoins: ₿{{bitcoinTotal}}</p>
+       <p>Current Value: {{(bitcoinTotal * currencyPrice) | currency: "USD"}}</p>
       </mat-card-title>
     </mat-card-header>
 
 
     <!--start-->
     <div class="example-container mat-elevation-z8">
-        <div class="example-header">
-          <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-          </mat-form-field>
-        </div>
-      
-        <mat-table #table [dataSource]="dataSource">
+          <mat-table #table [dataSource]="dataSource">
       
           <!-- Position Column -->
           <ng-container matColumnDef="price">
             <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-            <mat-cell *matCellDef="let transaction"> {{transaction.price}} </mat-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.Price | currency: "USD"}} </mat-cell>
           </ng-container>
       
           <!-- Name Column -->
-          <ng-container matColumnDef="cryptoAmount">
+          <ng-container matColumnDef="cryptoTransactionAmount">
             <mat-header-cell *matHeaderCellDef> Crypto Amount </mat-header-cell>
-            <mat-cell *matCellDef="let transaction"> {{transaction.cryptoValu}} </mat-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.CryptoTransactionAmount}} </mat-cell>
           </ng-container>
       
           <!-- Weight Column -->
           <ng-container matColumnDef="marketValue">
             <mat-header-cell *matHeaderCellDef> Market Value </mat-header-cell>
-            <mat-cell *matCellDef="let transaction"> {{transaction.marketValue}} </mat-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.MarketValue}} </mat-cell>
           </ng-container>
       
           <!-- Symbol Column -->
           <ng-container matColumnDef="transactionDate">
             <mat-header-cell *matHeaderCellDef> Transaction Date</mat-header-cell>
-            <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate}} </mat-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate | date: 'shortDate'}} </mat-cell>
           </ng-container>
       
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
