@@ -1,0 +1,61 @@
+#centerTextWrapper {
+    display: flex;
+    justify-content: center;
+    color: white; 
+}
+
+#centerWrapper {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.wrapper {
+    height: 88%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1em 1fr 1em 1fr 1em 1fr 1em;
+    grid-template-areas:
+    ". right . center . left .";
+}
+
+.bitcoinColumn {
+    grid-area: right;
+    margin: 1em;  
+}
+
+.ethereumColumn {
+    grid-area: center;
+    margin: 1em;    
+}
+
+.newsColumn {
+    grid-area: left;
+    margin: 1em;
+}
+
+.card {
+    height: 94%;
+    font-size: 22px;
+    background-color: #C5CAE9;
+    color : #e8edf3;
+ }
+
+mat-card-image {
+    height: 10rem;
+}
+
+.starting-header-image {
+    background-image: url('http://vcwebsites.com/familyfirst/wp-content/uploads/2015/06/icon-launch-k.svg');
+    background-size: cover;
+}
+
+.eth-header-image {
+    background-image: url('https://user-images.githubusercontent.com/5788982/27623008-a5e8c956-5bda-11e7-9246-d17205287ad3.png');
+    background-size: cover;
+}
+
+.info-header-image {
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/253190/1466703414.png');
+    background-size: cover;
+}

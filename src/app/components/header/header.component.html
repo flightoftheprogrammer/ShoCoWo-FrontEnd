@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <span>$ho¢oWo</span>
-  <button mat-raised-button class="nav-btn" routerLink="/home" id="homeButton">Home</button>
+  <button mat-raised-button class="nav-btn" routerLink="/welcome" *ngIf="!isLoggedIn" id="homeButton">Welcome</button>
 
   <button mat-raised-button class="nav-btn" routerLink="/infobtc" *ngIf="!isLoggedIn">BTC Info</button>
   <button mat-raised-button class="nav-btn" routerLink="/infoeth" *ngIf="!isLoggedIn">ETH Info</button>
 
+  <button mat-raised-button class="nav-btn" routerLink="/home" *ngIf="isLoggedIn" id="homeButton">Home</button>
   <button mat-raised-button class="nav-btn" routerLink="/btc" *ngIf="isLoggedIn">BTC</button>
   <button mat-raised-button class="nav-btn" routerLink="/eth" *ngIf="isLoggedIn">ETH</button>
   <button mat-raised-button class="nav-btn" routerLink="/wallet" *ngIf="isLoggedIn">Wallet</button>    
