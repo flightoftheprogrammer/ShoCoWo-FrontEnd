@@ -32,12 +32,14 @@ export class BtcComponent implements OnInit {
 
   ngOnInit() {
     this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
-    this._holding.getHolding(1).subscribe(value => this.bitcoinTotal = value[0]["CryptoHoldingBalance"])
-    this._holding.getHoldingTransactions(1).subscribe((wt: WalletTransaction[]) => {
-      wt.forEach(t => {
-        t.Price = t.MarketValue * t.CryptoTransactionAmount
+    this._holding.getHoldingByCurrencyId(1).subscribe(result => {
+      this._holding.getHolding(result["HoldingId"]).subscribe(value => this.bitcoinTotal = value[0]["CryptoHoldingBalance"])
+      this._holding.getHoldingTransactions(result["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
+        wt.forEach(t => {
+          t.Price = t.MarketValue * t.CryptoTransactionAmount
+        })
+        this.dataSource = new TransactionDataSource(wt)
       })
-      this.dataSource = new TransactionDataSource(wt)
     })
     this._crypto.getBtcPrice().subscribe(result => this.currencyPrice = result["BTC"]["USD"])
     this._chart.dailyBtcPrice()
