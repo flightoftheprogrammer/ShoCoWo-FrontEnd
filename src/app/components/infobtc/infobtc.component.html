@@ -1,29 +1,34 @@
 <div class="btcGrid">
-    <mat-card class="btcActions">
-      <mat-card-header>
-        <div mat-card-avatar class="btc-header-image"></div>
-        <mat-card-title>BitCoin</mat-card-title>
-        <span class="btcCurrentPrice">{{ cryptos['BTC'].USD | currency:'USD':true }}</span>
-      </mat-card-header>
-      <br>
-      <mat-card-content class="btcChart">
-        <div *ngIf="chart">
-          <canvas id="canvas" >{{ chart }}</canvas>
-        </div>      
-      </mat-card-content>
-      <p>Past 30 days of BitCoin Prices</p>
-      <br>
-      <p>This chart is here to assist you on identifying trends in the market then buy and sell accordingly.</p> 
-    </mat-card>
-      
-    <mat-card class="btcInfo">
-      <mat-card-header>
-        <div mat-card-avatar class="btcinfo-header-image"></div>
-        <mat-card-title>Information on Bitcoin</mat-card-title>
-      </mat-card-header>
-      <br>
-      <mat-card-content>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea hic tempora alias, perferendis rem perspiciatis itaque aut nulla praesentium iusto ducimus! Facilis fugiat dolorem reiciendis rem, deleniti suscipit harum aspernatur. Praesentium labore beatae eligendi reiciendis, distinctio maiores odit molestiae impedit laudantium est repellendus quisquam omnis, rerum aspernatur laborum iure reprehenderit voluptates cum minus rem iusto amet nostrum. Incidunt quam adipisci animi facere sint eum, vel, dolores dolorem consequatur harum natus aperiam quis quos tempore saepe quae ab placeat necessitatibus. Eaque.
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <mat-card class="btcActions">
+    <mat-card-header>
+      <div mat-card-avatar class="btc-header-image"></div>
+      <mat-card-title>BitCoin</mat-card-title>
+      <span class="btcCurrentPrice">{{ cryptos['BTC'].USD | currency:'USD':true }}</span>
+    </mat-card-header>
+    <br>
+    <mat-card-content class="btcChart">
+      <div *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+    </mat-card-content>
+    <p>Past 30 days of BitCoin Prices</p>
+    <br>
+    <p>This chart is here to assist you on identifying trends in the market then buy and sell accordingly.</p>
+  </mat-card>
+
+  <mat-card class="btcInfo">
+    <mat-card-header>
+      <div mat-card-avatar class="btcinfo-header-image"></div>
+      <mat-card-title>Information on Bitcoin</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea hic tempora alias, perferendis rem perspiciatis itaque aut nulla
+      praesentium iusto ducimus! Facilis fugiat dolorem reiciendis rem, deleniti suscipit harum aspernatur. Praesentium labore
+      beatae eligendi reiciendis, distinctio maiores odit molestiae impedit laudantium est repellendus quisquam omnis, rerum
+      aspernatur laborum iure reprehenderit voluptates cum minus rem iusto amet nostrum. Incidunt quam adipisci animi facere
+      sint eum, vel, dolores dolorem consequatur harum natus aperiam quis quos tempore saepe quae ab placeat necessitatibus.
+      Eaque.
+    </mat-card-content>
+  </mat-card>
+</div>
