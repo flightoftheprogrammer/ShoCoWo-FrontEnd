@@ -79,7 +79,7 @@ const routes = [
     ]
   },
   { path: 'profile',  component: ProfileComponent},
-  { path: '**', component:HomeComponent}
+  { path: '**', component:WelcomeComponent}
 ]
 
 @NgModule({
