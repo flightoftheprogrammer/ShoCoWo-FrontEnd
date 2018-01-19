@@ -30,6 +30,7 @@
 
 mat-card {
     background-color: #C5CAE9;
+    font-weight: bold;
 }
 
 mat-card-content {
