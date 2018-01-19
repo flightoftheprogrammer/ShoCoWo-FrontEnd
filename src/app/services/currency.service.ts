@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
+const Api_Url = 'http://shocowo.apphb.com'
+
 @Injectable()
 export class CurrencyService {
 
@@ -12,13 +14,13 @@ export class CurrencyService {
   getCurrencies(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.get(`http://localhost:53293/api/Currency`, {headers: this.setHeader()})
+    return this._http.get(`${Api_Url}/api/Currency`, {headers: this.setHeader()})
   }
   
   addCurrency(currencyNameL: string, currencyNameS: string): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.post(`http://localhost:53293/api/Currency`,{"CurrencyNameLong": currencyNameL, "CurrencyName": currencyNameS }, {headers: this.setHeader()})
+    return this._http.post(`${Api_Url}/api/Currency`,{"CurrencyNameLong": currencyNameL, "CurrencyName": currencyNameS }, {headers: this.setHeader()})
   }
 
   private setHeader(): HttpHeaders {
@@ -28,7 +30,7 @@ export class CurrencyService {
   getCurrencyId(id: number): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.get(`http://localhost:53293/api/Currency/${id}`, {headers: this.setHeader()})
+    return this._http.get(`${Api_Url}/api/Currency/${id}`, {headers: this.setHeader()})
   }
 
 }
