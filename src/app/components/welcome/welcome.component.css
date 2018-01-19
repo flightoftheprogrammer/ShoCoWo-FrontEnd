@@ -2,6 +2,11 @@
     display: flex;
     justify-content: center;
     color: black; 
+    font-weight: bolder;
+}
+
+#textWrapper {
+    color: black; 
     font-weight: bold;
 }
 
