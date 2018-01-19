@@ -22,8 +22,41 @@
     <mat-card class="walletInfo">
       <mat-card-header>
         <div mat-card-avatar class="wallet-header-image"></div>
-        <mat-card-title>My Wallet</mat-card-title>
+        <mat-card-title>My Wallet<br>
+         <p>Available funds: {{availableFunds | currency: "USD"}}</p> 
+  
+         <p>Total Ethereum: {{ethereumTotal}}</p>
+         <p>Current Value: {{ totalValue | currency: "USD"}}</p>
+        </mat-card-title>
       </mat-card-header>
+  
+      <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+        
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+              <mat-cell *matCellDef="let transaction"> {{transaction.Price | currency: "USD"}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="cryptoTransactionAmount">
+              <mat-header-cell *matHeaderCellDef> Crypto Amount </mat-header-cell>
+              <mat-cell *matCellDef="let transaction"> {{transaction.CryptoTransactionAmount}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="marketValue">
+              <mat-header-cell *matHeaderCellDef> Market Value </mat-header-cell>
+              <mat-cell *matCellDef="let transaction"> {{transaction.MarketValue}} </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="transactionDate">
+              <mat-header-cell *matHeaderCellDef> Transaction Date</mat-header-cell>
+              <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate | date: 'shortDate'}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </div>
     </mat-card>
   </div>
   
