@@ -1,10 +1,19 @@
 <mat-toolbar color="primary">
   <span>$ho¢oWo</span>
-  <button mat-raised-button class="nav-btn" routerLink="/home" id="homeButton">Home</button>  
-  <button mat-raised-button class="nav-btn" routerLink="/btc">BTC</button>
-  <button mat-raised-button class="nav-btn" routerLink="/eth">ETH</button>
-  <button mat-raised-button class="nav-btn" routerLink="/wallet">Wallet</button>    
+  <button mat-raised-button class="nav-btn" routerLink="/welcome" *ngIf="!isLoggedIn" id="homeButton">Welcome</button>
+
+  <button mat-raised-button class="nav-btn" routerLink="/infobtc" *ngIf="!isLoggedIn">BTC Info</button>
+  <button mat-raised-button class="nav-btn" routerLink="/infoeth" *ngIf="!isLoggedIn">ETH Info</button>
+
+  <button mat-raised-button class="nav-btn" routerLink="/home" *ngIf="isLoggedIn" id="homeButton">Home</button>
+  <button mat-raised-button class="nav-btn" routerLink="/btc" *ngIf="isLoggedIn">BTC</button>
+  <button mat-raised-button class="nav-btn" routerLink="/eth" *ngIf="isLoggedIn">ETH</button>
+  <button mat-raised-button class="nav-btn" routerLink="/wallet" *ngIf="isLoggedIn">Wallet</button>    
+
   <span class="example-fill-remaining-space"></span>
-  <button mat-raised-button class="nav-btn" routerLink="/register">Register</button>
-  <button mat-raised-button class="nav-btn" routerLink="/login">Login</button>
+
+  <button mat-raised-button class="nav-btn" routerLink="/register" *ngIf='!isLoggedIn'>Register</button>
+  <button mat-raised-button class="nav-btn" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
+  <span id="username" *ngIf="isLoggedIn">{{username}}</span>
+  <button mat-raised-button class="nav-btn" routerLink="/home" *ngIf="isLoggedIn" (click)="logOut()">Log Out</button>
 </mat-toolbar>

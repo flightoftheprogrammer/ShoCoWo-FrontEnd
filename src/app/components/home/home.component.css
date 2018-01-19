@@ -1,0 +1,74 @@
+#centerTextWrapper {
+    display: flex;
+    justify-content: center;
+    color: black; 
+    font-weight: bold;
+}
+
+#centerWrapper {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.wrapper {
+    height: 88%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1em 1fr 1em 1fr 1em 1fr 1em;
+    grid-template-areas:
+    ". right . center . left .";
+}
+
+.bitcoinColumn {
+    grid-area: right;
+    margin: 1em;  
+}
+
+.ethereumColumn {
+    grid-area: center;
+    margin: 1em;    
+}
+
+.walletColumn {
+    grid-area: left;
+    margin: 1em;
+}
+
+.card {
+    height: 94%;
+    font-size: 22px;
+    background-color: #C5CAE9;
+    color : #e8edf3;
+ }
+
+.titlebar {
+    color: black;
+    font-weight: bolder;
+}
+mat-card-image {
+    height: 10rem;
+}
+
+mat-card-title {
+    font-weight: bolder;
+}
+
+.nav-btn {
+    background-color: rgb(45, 171, 255);
+}
+
+.btc-header-image {
+    background-image: url('https://bitcoin.org/img/icons/opengraph.png');
+    background-size: cover;
+}
+
+.eth-header-image {
+    background-image: url('https://user-images.githubusercontent.com/5788982/27623008-a5e8c956-5bda-11e7-9246-d17205287ad3.png');
+    background-size: cover;
+}
+
+.wallet-header-image {
+    background-image: url('https://image.flaticon.com/icons/svg/189/189709.svg');
+    background-size: cover;
+}

@@ -1,3 +1,48 @@
-<p>
-  home works!
-</p>
+<div class="wrapper">
+    <div class="bitcoinColumn">
+        <mat-card class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="btc-header-image"></div>
+                <mat-card-title class="titlebar">Welcome to Bitcoin</mat-card-title>
+            </mat-card-header>
+            <mat-card-content id="centerTextWrapper">Bitcoin the world's new currency</mat-card-content>
+            <img mat-card-image src="https://s.hswstatic.com/gif/bitcoin-4.jpg" alt="Bitcoin">
+            <mat-card-actions>
+                <div id="centerWrapper">
+                        <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc">Start Trading!</button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="ethereumColumn">
+        <mat-card class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="eth-header-image"></div>
+                <mat-card-title class="titlebar">Welcome to Ethereum</mat-card-title>
+            </mat-card-header>
+            <mat-card-content id="centerTextWrapper">Ethereum the digital currency</mat-card-content>
+            <img mat-card-image src="http://cryptocurry.com/wp-content/uploads/2017/09/4-Amazing-Benefits-of-Ethereum-Over-Bitcoin.jpeg">
+            <mat-card-actions>
+                <div id="centerWrapper">
+                        <button mat-raised-button class="nav-btn" color="primary" routerLink="/eth">Start Trading!</button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="walletColumn">
+        <mat-card class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="wallet-header-image"></div>
+                <mat-card-title class="titlebar">My Wallet</mat-card-title>
+            </mat-card-header>
+            <mat-card-content id="centerTextWrapper">Transaction History, Balances and Add Funds</mat-card-content>
+            <img mat-card-image src="https://cdn-images-1.medium.com/max/1024/1*MWkBenY736ZV75T7Cc7R5g.jpeg">
+            <mat-card-actions>
+                    <mat-card-content id="centerTextWrapper">Wallet is meant for you to review your transaction, balances, and add funds. You will be able to review your avaiable funds in USD, Bitcoin, and Ethereum.</mat-card-content>
+                <div id="centerWrapper">
+                        <button mat-raised-button class="nav-btn" color="primary" routerLink="/wallet"> My Wallet</button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+#centerTextWrapper {
+    display: flex;
+    justify-content: center;
+    color: black; 
+    font-weight: bolder;
+}
+
+#textWrapper {
+    color: black; 
+    font-weight: bold;
+}
+
+#centerWrapper {
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.wrapper {
+    height: 88%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1em 1fr 1em 1fr 1em 1fr 1em;
+    grid-template-areas:
+    ". right . center . left .";
+}
+
+.startingColumn {
+    grid-area: right;
+    margin: 1em;  
+}
+
+.coinsColumn {
+    grid-area: center;
+    margin: 1em;    
+}
+
+.newsColumn {
+    grid-area: left;
+    margin: 1em;
+}
+
+.card {
+    height: 94%;
+    font-size: 22px;
+    background-color: #C5CAE9;
+ }
+
+mat-card-image {
+    height: 10rem;
+}
+
+mat-card-title {
+    font-weight: bolder;
+}
+
+.nav-btn {
+    background-color: rgb(45, 171, 255);
+}
+
+.starting-header-image {
+    background-image: url('http://vcwebsites.com/familyfirst/wp-content/uploads/2015/06/icon-launch-k.svg');
+    background-size: cover;
+}
+
+.coins-header-image {
+    background-image: url('https://lh5.ggpht.com/WVSRU1m3B6jUEz34zgGiOibmeDj06pdt2Jktb7jQLjfTE69tT9hwjUA4ExiTRq3wgjM=w300');
+    background-size: cover;
+}
+
+.info-header-image {
+    background-image: url('https://openclipart.org/image/2400px/svg_to_png/253190/1466703414.png');
+    background-size: cover;
+}

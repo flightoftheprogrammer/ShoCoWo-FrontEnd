@@ -10,7 +10,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule, 
-  MatCardModule
+  MatCardModule,
+  MatTableModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -36,14 +37,18 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { AuthService } from './services/auth.service';
+import { HoldingService } from './services/holding.service'
+import { BackendService } from './services/backend.service'
 import { prepareProfile } from 'selenium-webdriver/firefox';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AuthGuard } from './guards/auth.guards';
 import { CryptoService } from './services/crypto.service';
 import { ChartService } from './services/chart.service';
+import { WalletService } from './services/wallet.service';
 
 
 const routes = [
+  { path: 'welcome', component:WelcomeComponent },
   { path: 'home', component:HomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
@@ -58,7 +63,8 @@ const routes = [
     ]
   },
   { 
-    path: 'eth', canActivate: [AuthGuard] , children: [
+
+    path: 'eth' ,  children: [
       { path: '', component: EthComponent },
       { path: 'buy', component: BuyEthComponent},
       { path: 'sell', component: SellEthComponent},
@@ -66,14 +72,14 @@ const routes = [
     ]
   },
   { 
-    path: 'wallet', canActivate: [AuthGuard] , children: [
+    path: 'wallet' ,   children: [
      { path: '', component: WalletComponent},
      { path: 'holdings', component:HoldingsComponent},
      { path: 'transactions', component:TransactionsComponent},
     ]
   },
   { path: 'profile',  component: ProfileComponent},
-  { path: '**', component:HomeComponent}
+  { path: '**', component:WelcomeComponent}
 ]
 
 @NgModule({
@@ -113,12 +119,16 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    HttpModule
+    HttpModule,
+    MatTableModule
   ],
   providers: [
     AuthService,
     ChartService,
     CryptoService,
+    BackendService,
+    HoldingService,
+    WalletService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-const Api_Url = 'http://localhost:53293'
+const Api_Url = 'http://shocowo.apphb.com'
 
 @Injectable()
 export class AuthService {
@@ -27,7 +27,9 @@ export class AuthService {
       return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
-      this._router.navigate(['/']);
+
+      window.location.reload();
+      this._router.navigate(['/home']);
     });
   }
 
