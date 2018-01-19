@@ -24,10 +24,18 @@ export class EthComponent implements OnInit {
   currencyPrice: number;
   totalValue: number = 0;
   dataSource: DataSource<any> | null;
+  cryptos: any;
+  cryptoPrice: number;
 
   constructor(private _chart: ChartService, private _crypto: CryptoService, private _backend: BackendService, private _wallet: WalletService, private _holding: HoldingService) { }
 
   ngOnInit() {
+    this._crypto.getEthPrice()
+    .subscribe(res => {
+      this.cryptos = res;
+      this.cryptoPrice = res['ETH']['USD']
+    })
+
     this._crypto.getEthPrice().subscribe(result => this.currencyPrice = result["ETH"]["USD"])
     this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
     this._holding.getHoldingByCurrencyId(2).subscribe(result => {

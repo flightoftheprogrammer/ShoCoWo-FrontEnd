@@ -27,10 +27,18 @@ export class BtcComponent implements OnInit {
   bitcoinTotal: number;
   currencyPrice: number;
   dataSource: DataSource<any> | null;
+  cryptos: any;
+  cryptoPrice: number;
 
-  constructor(private _crypto: CryptoService, private _chart: ChartService, private _wallet: WalletService, private _holding: HoldingService, private _backend: BackendService) { }
+  constructor(private _data: CryptoService, private _chart: ChartService, private _wallet: WalletService, private _holding: HoldingService, private _backend: BackendService) { }
 
   ngOnInit() {
+    this._data.getBtcPrice()
+    .subscribe(res => {
+      this.cryptos = res;
+      this.cryptoPrice = res['BTC']['USD'];
+    })
+
     this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
     this._holding.getHoldingByCurrencyId(1).subscribe(result => {
       this._holding.getHolding(result["HoldingId"]).subscribe(value => this.bitcoinTotal = value[0]["CryptoHoldingBalance"])
@@ -41,7 +49,7 @@ export class BtcComponent implements OnInit {
         this.dataSource = new TransactionDataSource(wt)
       })
     })
-    this._crypto.getBtcPrice().subscribe(result => this.currencyPrice = result["BTC"]["USD"])
+    this._data.getBtcPrice().subscribe(result => this.currencyPrice = result["BTC"]["USD"])
     this._chart.dailyBtcPrice()
       .subscribe(res => {
         this.chart = [];

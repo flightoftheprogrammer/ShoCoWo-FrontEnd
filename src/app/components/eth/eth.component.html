@@ -3,9 +3,10 @@
       <mat-card-header>
         <div mat-card-avatar class="eth-header-image"></div>
         <mat-card-title>Ethereum</mat-card-title>
+        <span class="ethCurrentPrice">{{cryptos['ETH'].USD | currency: 'USD':true }}</span>
       </mat-card-header>
       <br>
-      <mat-card-content>
+      <mat-card-content class="ethChart">
         <div *ngIf="chart">
           <canvas id="canvas" >{{ chart }}</canvas>
         </div>

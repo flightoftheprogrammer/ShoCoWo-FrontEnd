@@ -2,7 +2,7 @@
   <div>
     <mat-card id="buyCard">
     <h1 class="pageTitle">Buy Bitcoin!</h1>
-    <h3>Available Funds: {{ availableFunds }}</h3>
+    <h3>Available Funds: {{ availableFunds | currency: 'USD':true }}</h3>
     <br>
     <br>
     <mat-card class="btcBuyForm">

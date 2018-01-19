@@ -23,7 +23,7 @@ export class InfoethComponent implements OnInit {
     this._data.getEthPrice()
     .subscribe(res => {
       this.cryptos = res;
-      this.cryptoPrice = res["BTC"]["USD"];
+      this.cryptoPrice = res["ETH"]["USD"];
     })
 
     this._chart.dailyEthPrice()
