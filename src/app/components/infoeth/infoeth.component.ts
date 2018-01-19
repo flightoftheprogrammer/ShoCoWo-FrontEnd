@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from '../../services/chart.service';
 import { Chart } from 'chart.js';
+import { CryptoService } from '../../services/crypto.service';
 
 
 @Component({
@@ -10,11 +11,20 @@ import { Chart } from 'chart.js';
 })
 export class InfoethComponent implements OnInit {
 
+  cryptos: any;
+  cryptoPrice: number;
+
   chart = [];
 
-  constructor(private _chart: ChartService) { }
+  constructor(private _chart: ChartService, private _data: CryptoService) { }
 
   ngOnInit() {
+
+    this._data.getEthPrice()
+    .subscribe(res => {
+      this.cryptos = res;
+      this.cryptoPrice = res["BTC"]["USD"];
+    })
 
     this._chart.dailyEthPrice()
       .subscribe(res => {

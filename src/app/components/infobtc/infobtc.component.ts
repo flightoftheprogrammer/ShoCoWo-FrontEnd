@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartService } from '../../services/chart.service';
 import { Chart } from 'chart.js';
+import { BackendService } from '../../services/backend.service';
+import { CryptoService } from '../../services/crypto.service';
+
 
 @Component({
   selector: 'app-infobtc',
+  providers: [BackendService],
   templateUrl: './infobtc.component.html',
   styleUrls: ['./infobtc.component.css']
 })
 
 export class InfobtcComponent implements OnInit {
 
+  cryptos: any;
+  cryptoPrice: number;
+
   chart = [];
 
-  constructor(private _chart: ChartService) {}
+  constructor(private _chart: ChartService, private _data: CryptoService, private _backend: BackendService) {}
 
   ngOnInit() {
-    
+
     this._chart.dailyBtcPrice()
       .subscribe(res => {
         this.chart = [];
@@ -93,5 +100,11 @@ export class InfobtcComponent implements OnInit {
 
      
       })
+
+      this._data.getBtcPrice()
+    .subscribe(res => {
+      this.cryptos = res;
+      this.cryptoPrice = res["BTC"]["USD"];
+    })
   }
 }
