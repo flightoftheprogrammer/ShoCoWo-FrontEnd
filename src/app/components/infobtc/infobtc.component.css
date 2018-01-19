@@ -35,6 +35,7 @@ mat-card {
 
 mat-card-content {
     background-color:#E8EAF6;
+    font-weight: bold;
 }
 
 p {
@@ -43,4 +44,14 @@ p {
 
 mat-card-title {
     font-weight: bolder;
+}
+
+.btcCurrentPrice {
+    margin-top: .5em;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.btcChart {
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
 }
