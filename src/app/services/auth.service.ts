@@ -11,7 +11,7 @@ const Api_Url = 'http://shocowo.apphb.com'
 
 @Injectable()
 export class AuthService {
-  userInfo = new Subject<{}>();
+  userInfo: Token;
   isLoggedIn = new Subject<boolean>();
 
   constructor( private _http: HttpClient, private _router: Router) { }
@@ -26,8 +26,6 @@ export class AuthService {
     
       return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
-      localStorage.setItem('user', token.userName);
-
       this.isLoggedIn.next(true);
 
       window.location.reload();
