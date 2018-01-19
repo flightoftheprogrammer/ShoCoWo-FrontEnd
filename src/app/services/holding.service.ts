@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-const Api_Url = 'https://appharbor.com/applications/shocowo'
+const Api_Url = 'http://shocowo.apphb.com'
 
 @Injectable()
 export class HoldingService {

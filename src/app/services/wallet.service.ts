@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const Api_Url = 'https://appharbor.com/applications/shocowo'
+const Api_Url = 'http://shocowo.apphb.com'
 
 @Injectable()
 export class WalletService {
