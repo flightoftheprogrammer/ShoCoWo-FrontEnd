@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../services/auth.service'
 import { Observable } from 'rxjs/Observable';
 
+const Api_Url = 'https://appharbor.com/applications/shocowo'
+
 @Injectable()
 export class BackendService {
 
@@ -12,11 +14,11 @@ export class BackendService {
   getWallet(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.get(`http://localhost:53293/api/Wallet`, {headers: this.setHeader()})
+    return this._http.get(`${Api_Url}/api/Wallet`, {headers: this.setHeader()})
   }
 
   updateWalletBalance(amountChanged: number): Observable<Object> {
-    return this._http.put(`http://localhost:53293/api/Wallet?amount=${amountChanged}`, null, {headers: this.setHeader()})
+    return this._http.put(`${Api_Url}/api/Wallet?amount=${amountChanged}`, null, {headers: this.setHeader()})
   }
 
   private setHeader(): HttpHeaders {
@@ -26,19 +28,19 @@ export class BackendService {
   getWalletTransaction(): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.get(`http://localhost:53293/api/WalletTransaction`, {headers: this.setHeader()})
+    return this._http.get(`${Api_Url}/api/WalletTransaction`, {headers: this.setHeader()})
   }
 
   getWalletTransactionById(id: number): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.get(`http://localhost:53293/api/WalletTransaction/${id}`, {headers: this.setHeader()})
+    return this._http.get(`${Api_Url}/api/WalletTransaction/${id}`, {headers: this.setHeader()})
   }
 
   postWalletTransaction(amountChanged: number): Observable<Object> {
     if (!localStorage.getItem('id_token')) { return new Observable(observer => observer.next(false)); }
 
-    return this._http.post(`http://localhost:53293/api/WalletTransaction`,{"TransactionAmount": amountChanged}, {headers: this.setHeader()})
+    return this._http.post(`${Api_Url}/api/WalletTransaction`,{"TransactionAmount": amountChanged}, {headers: this.setHeader()})
   }
 
 }
