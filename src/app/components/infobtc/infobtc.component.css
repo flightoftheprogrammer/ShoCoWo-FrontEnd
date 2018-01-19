@@ -44,6 +44,7 @@ p {
 
 mat-card-title {
     font-weight: bolder;
+    margin-top: .5em;
 }
 
 .btcCurrentPrice {
