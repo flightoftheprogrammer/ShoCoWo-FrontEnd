@@ -26,6 +26,7 @@ export class AuthService {
     
       return this._http.post(`${Api_Url}/token`, str).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
+      localStorage.setItem('user', token.userName);
       this.isLoggedIn.next(true);
 
       window.location.reload();
