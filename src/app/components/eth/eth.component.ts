@@ -58,7 +58,7 @@ export class EthComponent implements OnInit {
         let ethDates = []
         alldates.forEach((res) => {
           let jsdate = new Date(res * 1000)
-          ethDates.push(jsdate.toLocaleTimeString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
+          ethDates.push(jsdate.toLocaleString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
         })
         this.chart = new Chart( 'canvas' , {
           type: 'line',
