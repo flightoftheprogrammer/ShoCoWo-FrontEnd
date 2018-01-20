@@ -42,8 +42,6 @@ export class EthComponent implements OnInit {
       this._holding.getHolding(result[1]["HoldingId"]).subscribe(value => {
         this.ethereumTotal = value[1]["CryptoHoldingBalance"]
         this.totalValue = this.currencyPrice * this.ethereumTotal
-        console.log(this.currencyPrice)
-        console.log(this.ethereumTotal)
       })
       this._holding.getHoldingTransactions(result[1]["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
         wt.forEach(t => {
