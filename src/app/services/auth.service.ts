@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-const Api_Url = 'http://shocowo.apphb.com'
+const Api_Url = 'http://shocowo.azurewebsites.net'
 
 @Injectable()
 export class AuthService {
