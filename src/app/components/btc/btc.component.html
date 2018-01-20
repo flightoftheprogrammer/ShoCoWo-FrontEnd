@@ -3,7 +3,7 @@
     <mat-card-header>
       <div mat-card-avatar class="btc-header-image"></div>
       <mat-card-title>Bitcoin</mat-card-title>
-      <span class="btcCurrentPrice">{{cryptos['BTC'].USD | currency: 'USD': true}}</span>
+      <span class="btcCurrentPrice">{{currencyPrice | currency: 'USD': true}}</span>
     </mat-card-header>
     <br>
     <mat-card-content class="btcChart">
