@@ -24,7 +24,6 @@ export class BuyBtcComponent {
   }
 
   ngOnInit() {
-    
     this._data.getBtcPrice()
     .subscribe(res => {
       this.cryptos = res;

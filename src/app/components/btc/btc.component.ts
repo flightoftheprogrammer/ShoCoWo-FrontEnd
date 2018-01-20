@@ -36,19 +36,11 @@ export class BtcComponent implements OnInit {
     this._data.getBtcPrice()
     .subscribe(res => {
       this.cryptos = res;
-      this.cryptoPrice = res['BTC']['USD'];
+      this.cryptoPrice = res["BTC"]["USD"];
     })
-
-    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
-    this._holding.getHoldingByCurrencyId(1).subscribe(result => {
-      this._holding.getHolding(result[0]["HoldingId"]).subscribe(value => this.bitcoinTotal = value[0]["CryptoHoldingBalance"])
-      this._holding.getHoldingTransactions(result[0]["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
-        wt.forEach(t => {
-          t.Price = t.MarketValue * t.CryptoTransactionAmount
-        })
-        this.dataSource = new TransactionDataSource(wt)
-      })
-    })
+    this.getWalletBalance()
+    this.getHolding()
+    this.getTableData(this.holdingId)
     this._data.getBtcPrice().subscribe(result => this.currencyPrice = result["BTC"]["USD"])
     this._chart.dailyBtcPrice()
       .subscribe(res => {
@@ -99,6 +91,27 @@ export class BtcComponent implements OnInit {
         });
       });
 
+  }
+
+  getWalletBalance() {
+    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
+  }
+
+  getHolding() {
+    this._holding.getHoldingByCurrencyId(1).subscribe(result => {
+      this.bitcoinTotal = result["CryptoHoldingBalance"]
+      this.holdingId = result["HoldingId"]
+      this.getTableData(result["HoldingId"])
+    })
+  }
+
+  getTableData(holdingId: number) {
+    this._holding.getHoldingTransactions(holdingId).subscribe((wt: WalletTransaction[]) => {
+      wt.forEach(t => {
+        t.Price = t.MarketValue * t.CryptoTransactionAmount
+      })
+      this.dataSource = new TransactionDataSource(wt)
+    })
   }
 }
 

@@ -3,7 +3,7 @@
       <mat-card-header>
         <div mat-card-avatar class="eth-header-image"></div>
         <mat-card-title>Ethereum</mat-card-title>
-        <span class="ethCurrentPrice">{{cryptos['ETH'].USD | currency: 'USD':true }}</span>
+        <span class="ethCurrentPrice">{{ currencyPrice | currency: 'USD':true }}</span>
       </mat-card-header>
       <br>
       <mat-card-content class="ethChart">
@@ -26,8 +26,8 @@
         <mat-card-title>My Wallet<br>
          <p>Available funds: {{availableFunds | currency: "USD"}}</p> 
   
-         <p>Total Ethereum: {{ethereumTotal}}</p>
-         <p>Current Value: {{ totalValue | currency: "USD"}}</p>
+         <p>Total Ethereum: Ξ{{ethereumTotal}}</p>
+         <p>Current Value: {{ ethereumTotal * currencyPrice | currency: "USD"}}</p>
         </mat-card-title>
       </mat-card-header>
   
