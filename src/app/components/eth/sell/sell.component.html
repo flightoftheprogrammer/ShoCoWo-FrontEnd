@@ -1,33 +1,33 @@
 <section id="sellPage">
-    <div>
-      <mat-card id="sellCard">
+  <div>
+    <mat-card id="sellCard">
       <h1 class="pageTitle">Sell Ethereum!</h1>
-      <h3>Available Funds: {{ funds }}</h3> <!--{{ funds }} is placeholder for now -->
+      <h3>Available Funds: {{ availableFunds | currency: 'USD' }}</h3>
       <br>
       <br>
       <mat-card class="ethSellForm">
         <div *ngIf="cryptos">
           <div id="crypto-container" *ngFor="let crypto of objectKeys(cryptos)">
             <span class="left">Current Price of {{ crypto }}:</span>
-            <span class="right">{{ cryptos[crypto].USD | currency:'USD':true }}</span>
+            <span class="right">{{ cryptos[crypto]["USD"] | currency:'USD':true }}</span>
           </div>
         </div>
         <br>
         <div>
           <mat-form-field class="sellInput">
-              <input matInput [(ngModel)]='cryptoPrice' type="number" placeholder="Amount">
-              <span matPrefix>Ξ</span>
+            <input matInput [(ngModel)]='sellAmount' type="number" placeholder="Amount">
+            <span matPrefix>Ξ</span>
           </mat-form-field>
           <br>
-            <div *ngIf="cryptos">
-              <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
-                <span class="sellOutput">USD: {{ cryptos[crypto].USD * cryptoPrice | currency:'USD':true }}</span>
-              </div>
+          <div *ngIf="cryptos">
+            <div id="crypto-form" *ngFor="let crypto of objectKeys(cryptos)">
+              <span class="sellOutput">USD: {{ sellAmount * cryptoPrice | currency:'USD':true }}</span>
             </div>
-            <br>
-            <button class="sellButton" mat-raised-button type="submit" color="primary">Sell!</button>
-            <button class="sellButton" mat-raised-button routerLink="/eth" color="primary">Cancel</button>
           </div>
+          <br>
+          <button class="sellButton" mat-raised-button routerLink="/eth" type="submit" color="primary" (click)="makeSale(sellAmount)">Sell!</button>
+          <button class="sellButton" mat-raised-button routerLink="/eth" color="primary">Cancel</button>
+        </div>
       </mat-card>
     </mat-card>
   </div>
