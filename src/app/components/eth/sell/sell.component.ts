@@ -28,7 +28,7 @@ export class SellEthComponent implements OnInit {
       this.cryptoPrice = res["ETH"]["USD"];
     })
     this.getHoldingId(2);
-    this._backend.getWallet().subscribe(value => this.availableFunds = value["WalletBalance"])
+    this._holding.getHoldingByCurrencyId(2).subscribe(value => this.availableFunds = value["CryptoHoldingBalance"])
   }
 
   getHoldingId(currencyId: number) {
