@@ -27,7 +27,7 @@
          <p>Available funds: {{availableFunds | currency: "USD"}}</p> 
   
          <p>Total Ethereum: Ξ{{ethereumTotal}}</p>
-         <p>Current Value: {{ totalValue | currency: "USD"}}</p>
+         <p>Current Value: {{ ethereumTotal * currencyPrice | currency: "USD"}}</p>
         </mat-card-title>
       </mat-card-header>
   

@@ -40,7 +40,7 @@ export class BtcComponent implements OnInit {
     })
     this.getWalletBalance()
     this.getHolding()
-    this.getTableData()
+    this.getTableData(this.holdingId)
     this._data.getBtcPrice().subscribe(result => this.currencyPrice = result["BTC"]["USD"])
     this._chart.dailyBtcPrice()
       .subscribe(res => {

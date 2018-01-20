@@ -37,19 +37,23 @@ export class EthComponent implements OnInit {
     })
 
     this._crypto.getEthPrice().subscribe(result => this.currencyPrice = result["ETH"]["USD"])
-    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
-    this._holding.getHoldingByCurrencyId(2).subscribe(result => {
-      this._holding.getHolding(result["HoldingId"]).subscribe(value => {
-        this.ethereumTotal = value["CryptoHoldingBalance"]
-        this.totalValue = this.currencyPrice * this.ethereumTotal
-      })
-      this._holding.getHoldingTransactions(result[1]["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
-        wt.forEach(t => {
-          t.Price = t.MarketValue * t.CryptoTransactionAmount
-        })
-        this.dataSource = new TransactionDataSource(wt)
-      })
-    })
+    this.getWalletBalance()
+    this.getHolding()
+    this.getTableData(this.holdingId)
+
+    // this._holding.getHoldingByCurrencyId(2).subscribe(result => {
+    //   this._holding.getHolding(result["HoldingId"]).subscribe(value => {
+    //     this.ethereumTotal = value["CryptoHoldingBalance"]
+    //     this.totalValue = this.currencyPrice * this.ethereumTotal
+    //   })
+    //   this._holding.getHoldingTransactions(result[1]["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
+    //     wt.forEach(t => {
+    //       t.Price = t.MarketValue * t.CryptoTransactionAmount
+    //     })
+    //     this.dataSource = new TransactionDataSource(wt)
+    //   })
+    // })
+
     this._chart.dailyEthPrice()
       .subscribe(res => {
         let ethPrice = res['Data'].map(res => res.close)
@@ -88,5 +92,26 @@ export class EthComponent implements OnInit {
          });
 
       })
+  }
+
+  getWalletBalance() {
+    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
+  }
+
+  getHolding() {
+    this._holding.getHoldingByCurrencyId(2).subscribe(result => {
+      this.ethereumTotal = result["CryptoHoldingBalance"]
+      this.holdingId = result["HoldingId"]
+      this.getTableData(result["HoldingId"])
+    })
+  }
+
+  getTableData(holdingId: number) {
+    this._holding.getHoldingTransactions(holdingId).subscribe((wt: WalletTransaction[]) => {
+      wt.forEach(t => {
+        t.Price = t.MarketValue * t.CryptoTransactionAmount
+      })
+      this.dataSource = new TransactionDataSource(wt)
+    })
   }
 }
