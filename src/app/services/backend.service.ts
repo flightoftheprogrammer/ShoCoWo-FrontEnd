@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../services/auth.service'
 import { Observable } from 'rxjs/Observable';
 
-const Api_Url = 'http://shocowo.apphb.com'
+const Api_Url = 'http://shocowo.azurewebsites.net'
 
 @Injectable()
 export class BackendService {
