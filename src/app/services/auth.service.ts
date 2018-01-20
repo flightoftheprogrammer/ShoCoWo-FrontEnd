@@ -28,8 +28,8 @@ export class AuthService {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
 
-      window.location.reload();
       this._router.navigate(['/home']);
+      window.location.reload();      
     });
   }
 
