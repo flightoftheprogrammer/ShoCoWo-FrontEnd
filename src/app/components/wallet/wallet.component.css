@@ -69,3 +69,9 @@ mat-card-title {
     overflow: auto;
     max-height: 500px;
   }
+
+  .cardInfo {
+      width: 75%;
+      margin: auto;
+      font-size: 24px;
+  }

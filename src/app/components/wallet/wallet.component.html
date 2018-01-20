@@ -6,13 +6,23 @@
       </mat-card-header>
       <br>
       <mat-card-content>
+      <br>
+      <mat-card class="cardInfo">
         <p>Wallet Balance: {{walletBalance | currency: "USD"}}</p>
+      </mat-card>
+      <br>
+      <mat-card class="cardInfo">
         <p>Total Bitcoin: {{ totalBitcoin }}</p>
         <p>Current Bitcoin Price: {{ currentBitcoinValue | currency: 'USD' }}</p>
         <p>Bitcoin Holding Value: {{ currentBitcoinValue * totalBitcoin | currency: 'USD' }}</p>
+      </mat-card>
+      <br>
+      <mat-card class="cardInfo">
         <p>Total Ethereum: {{ totalEthereum }}</p>
         <p>Current Ethereum Price: {{ currentEthereumValue | currency: 'USD'}}</p>
         <p>Ethereum Holding Value: {{ currentEthereumValue * totalEthereum | currency: 'USD' }}</p>
+      </mat-card>
+      <br>
       </mat-card-content>
     </mat-card>
   
