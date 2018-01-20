@@ -11,7 +11,7 @@ const Api_Url = 'http://shocowo.azurewebsites.net'
 
 @Injectable()
 export class AuthService {
-  userInfo: Token;
+  userInfo = new Subject<{}>();
   isLoggedIn = new Subject<boolean>();
 
   constructor( private _http: HttpClient, private _router: Router) { }
