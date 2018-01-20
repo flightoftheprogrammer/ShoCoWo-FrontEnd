@@ -36,7 +36,7 @@ export class BtcComponent implements OnInit {
     this._data.getBtcPrice()
     .subscribe(res => {
       this.cryptos = res;
-      this.cryptoPrice = res['BTC']['USD'];
+      this.cryptoPrice = res["BTC"]["USD"];
     })
 
     this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
