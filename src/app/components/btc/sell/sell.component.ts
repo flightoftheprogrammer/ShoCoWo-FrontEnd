@@ -28,7 +28,7 @@ export class SellBtcComponent implements OnInit {
       this.cryptoPrice = res["BTC"]["USD"];
     })
     this.getHoldingId(1);
-    this._backend.getWallet().subscribe(value => this.availableFunds = value["WalletBalance"])
+    this._holding.getHoldingByCurrencyId(1).subscribe(value => this.availableFunds = value["CryptoHoldingBalance"])
   }
 
   getHoldingId(currencyId: number) {
