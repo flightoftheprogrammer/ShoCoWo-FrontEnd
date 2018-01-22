@@ -2,7 +2,7 @@
   <div>
     <mat-card id="sellCard">
       <h1 class="pageTitle">Sell Ethereum!</h1>
-      <h3>Available Funds: {{ availableFunds | currency: 'USD' }}</h3>
+      <h3>Available ETH: {{ availableFunds }}</h3>
       <br>
       <br>
       <mat-card class="ethSellForm">
@@ -25,7 +25,7 @@
             </div>
           </div>
           <br>
-          <button class="sellButton" mat-raised-button routerLink="/eth" type="submit" color="primary" (click)="makeSale(sellAmount)">Sell!</button>
+          <button class="sellButton" mat-raised-button type="submit" color="primary" (click)="makeSale(sellAmount)">Sell!</button>
           <button class="sellButton" mat-raised-button routerLink="/eth" color="primary">Cancel</button>
         </div>
       </mat-card>

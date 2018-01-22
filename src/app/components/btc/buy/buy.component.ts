@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CryptoService } from '../../../services/crypto.service';
 import { HoldingService } from '../../../services/holding.service'
 import { BackendService } from '../../../services/backend.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy',
@@ -19,7 +20,7 @@ export class BuyBtcComponent {
   purchaseAmount: number = 0;
   holdingId: number;
 
-  constructor (private _data: CryptoService, private _holdingService: HoldingService, private _backendService: BackendService) {
+  constructor (private _router: Router, private _data: CryptoService, private _holdingService: HoldingService, private _backendService: BackendService) {
 
   }
 
@@ -47,5 +48,7 @@ export class BuyBtcComponent {
 
   makePurchase(amount: number) {
     this._holdingService.postHoldingTransaction(this.holdingId, amount, this.cryptoPrice).subscribe()
+    window.location.reload();
+    this._router.navigate(['/btc']);
   }
 }
