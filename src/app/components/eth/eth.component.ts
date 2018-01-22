@@ -29,6 +29,7 @@ export class EthComponent implements OnInit {
 
   ngOnInit() {
     this._crypto.getEthPrice().subscribe(result => this.currencyPrice = result["ETH"]["USD"])
+<<<<<<< Updated upstream
     this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
     this._holding.getHoldingByCurrencyId(2).subscribe(result => {
       this._holding.getHolding(result["HoldingId"]).subscribe(value => {
@@ -44,6 +45,12 @@ export class EthComponent implements OnInit {
         this.dataSource = new TransactionDataSource(wt)
       })
     })
+=======
+    this.getWalletBalance()
+    this.getHolding()
+    this.getTableData(this.holdingId)
+
+>>>>>>> Stashed changes
     this._chart.dailyEthPrice()
       .subscribe(res => {
         let ethPrice = res['Data'].map(res => res.close)

@@ -30,8 +30,9 @@
       </mat-card-title>
     </mat-card-header>
 
-
+    
     <!--start-->
+<<<<<<< Updated upstream
     <div class="example-container mat-elevation-z8">
           <mat-table #table [dataSource]="dataSource">
       
@@ -65,5 +66,39 @@
       </div>
       
 <!--end-->
+=======
+    <div class="example-container mat-elevation-z8" >
+      <mat-table #table [dataSource]="dataSource">
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.Price | currency: "USD"}} </mat-cell>
+        </ng-container>
+
+        <!-- Crypto Column -->
+        <ng-container matColumnDef="cryptoTransactionAmount">
+          <mat-header-cell *matHeaderCellDef> Crypto Amount </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.CryptoTransactionAmount}} </mat-cell>
+        </ng-container>
+
+        <!-- Market value Column -->
+        <ng-container matColumnDef="marketValue">
+          <mat-header-cell *matHeaderCellDef> Market Value </mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.MarketValue}} </mat-cell>
+        </ng-container>
+
+        <!-- Transaction Date Column -->
+        <ng-container matColumnDef="transactionDate">
+          <mat-header-cell *matHeaderCellDef> Transaction Date</mat-header-cell>
+          <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate | date: 'shortDate'}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <!--end-->
+>>>>>>> Stashed changes
   </mat-card>
 </div>

@@ -15,7 +15,7 @@
 
 .walletInfo {
     grid-area: right;
-    margin: 1em 0em;
+    margin: 1em 0em;    
 }
 
 button {
@@ -38,6 +38,7 @@ button {
 
 mat-card {
     background-color: #C5CAE9;
+    
 }
 
 mat-card-content {
@@ -50,4 +51,42 @@ p {
 
 mat-card-title {
     font-weight: bolder;
+<<<<<<< Updated upstream
 }
+=======
+    margin-top: .5em;
+}
+/* Structure for Table */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    height: 28em;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+.ethCurrentPrice{
+    margin-top: .5em;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+.ethChart{
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+}
+
+>>>>>>> Stashed changes

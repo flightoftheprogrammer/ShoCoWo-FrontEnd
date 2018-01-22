@@ -8,7 +8,7 @@ export class WalletService {
     constructor(private _http:HttpClient) { }
 
     getWallet() {
-        return this._http.get('${ApiUrl}/Wallet', {headers: this.getHeaders()});
+        return this._http.get(`${Api_Url}/Wallet`, {headers: this.getHeaders()});
     }
 
     private getHeaders() {
