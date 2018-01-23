@@ -1,5 +1,6 @@
 * {
     position: relative;
+    min-height: 95vh;
 }
 
 .grid {
@@ -7,18 +8,15 @@
     grid-template-columns: 1fr;
     grid-template-areas: 
     "top"
-    "content"
     "bottom";
 }
 
-app-header {
+div{
     grid-area: top;
-}
-
-router-outlet {
-    grid-area: content;
+    align-self: start;
 }
 
 app-footer {
     grid-area: bottom;
+    align-self: end;
 }
