@@ -1,6 +1,6 @@
 .btcGrid {
     display: grid;
-    height: 88%;
+    height: 80vh;
     grid-template-columns: 1em 58% 1em 39% 1em;
     grid-template-areas:
     ". left . right ."
