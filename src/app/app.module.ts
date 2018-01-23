@@ -49,7 +49,7 @@ import { AdminComponent } from './components/admin/admin.component';
 
 
 const routes = [
-  { path: 'admin', component:AdminComponent}
+  { path: 'admin', component:AdminComponent},
   { path: 'welcome', component:WelcomeComponent },
   { path: 'home', component:HomeComponent },
   { path: 'register', component: RegistrationComponent },
