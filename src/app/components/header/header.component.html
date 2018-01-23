@@ -15,5 +15,6 @@
   <button mat-raised-button class="nav-btn" routerLink="/register" *ngIf='!isLoggedIn'>Register</button>
   <button mat-raised-button class="nav-btn" routerLink="/login" *ngIf="!isLoggedIn">Login</button>
   <span id="username" *ngIf="isLoggedIn">{{username}}</span>
+  <button mat-raised-button class="nav-btn" routerLink="/admin" *ngIf="isAdmin">Manage Users</button>
   <button mat-raised-button class="nav-btn" routerLink="/home" *ngIf="isLoggedIn" (click)="logOut()">Log Out</button>
 </mat-toolbar>

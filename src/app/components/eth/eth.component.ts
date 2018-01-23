@@ -24,26 +24,36 @@ export class EthComponent implements OnInit {
   currencyPrice: number;
   totalValue: number = 0;
   dataSource: DataSource<any> | null;
+  cryptos: any;
+  cryptoPrice: number;
 
   constructor(private _chart: ChartService, private _crypto: CryptoService, private _backend: BackendService, private _wallet: WalletService, private _holding: HoldingService) { }
 
   ngOnInit() {
-    this._crypto.getEthPrice().subscribe(result => this.currencyPrice = result["ETH"]["USD"])
-    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
-    this._holding.getHoldingByCurrencyId(2).subscribe(result => {
-      this._holding.getHolding(result["HoldingId"]).subscribe(value => {
-        this.ethereumTotal = value[1]["CryptoHoldingBalance"]
-        this.totalValue = this.currencyPrice * this.ethereumTotal
-        console.log(this.currencyPrice)
-        console.log(this.ethereumTotal)
-      })
-      this._holding.getHoldingTransactions(result["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
-        wt.forEach(t => {
-          t.Price = t.MarketValue * t.CryptoTransactionAmount
-        })
-        this.dataSource = new TransactionDataSource(wt)
-      })
+    this._crypto.getEthPrice()
+    .subscribe(res => {
+      this.cryptos = res;
+      this.cryptoPrice = res['ETH']['USD']
     })
+
+    this._crypto.getEthPrice().subscribe(result => this.currencyPrice = result["ETH"]["USD"])
+    this.getWalletBalance()
+    this.getHolding()
+    this.getTableData(this.holdingId)
+
+    // this._holding.getHoldingByCurrencyId(2).subscribe(result => {
+    //   this._holding.getHolding(result["HoldingId"]).subscribe(value => {
+    //     this.ethereumTotal = value["CryptoHoldingBalance"]
+    //     this.totalValue = this.currencyPrice * this.ethereumTotal
+    //   })
+    //   this._holding.getHoldingTransactions(result[1]["HoldingId"]).subscribe((wt: WalletTransaction[]) => {
+    //     wt.forEach(t => {
+    //       t.Price = t.MarketValue * t.CryptoTransactionAmount
+    //     })
+    //     this.dataSource = new TransactionDataSource(wt)
+    //   })
+    // })
+
     this._chart.dailyEthPrice()
       .subscribe(res => {
         let ethPrice = res['Data'].map(res => res.close)
@@ -52,7 +62,7 @@ export class EthComponent implements OnInit {
         let ethDates = []
         alldates.forEach((res) => {
           let jsdate = new Date(res * 1000)
-          ethDates.push(jsdate.toLocaleTimeString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
+          ethDates.push(jsdate.toLocaleString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
         })
         this.chart = new Chart( 'canvas' , {
           type: 'line',
@@ -82,5 +92,26 @@ export class EthComponent implements OnInit {
          });
 
       })
+  }
+
+  getWalletBalance() {
+    this._backend.getWallet().subscribe(value => this.availableFunds = value['WalletBalance'])
+  }
+
+  getHolding() {
+    this._holding.getHoldingByCurrencyId(2).subscribe(result => {
+      this.ethereumTotal = result["CryptoHoldingBalance"]
+      this.holdingId = result["HoldingId"]
+      this.getTableData(result["HoldingId"])
+    })
+  }
+
+  getTableData(holdingId: number) {
+    this._holding.getHoldingTransactions(holdingId).subscribe((wt: WalletTransaction[]) => {
+      wt.forEach(t => {
+        t.Price = t.MarketValue * t.CryptoTransactionAmount
+      })
+      this.dataSource = new TransactionDataSource(wt)
+    })
   }
 }

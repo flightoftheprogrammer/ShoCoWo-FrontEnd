@@ -1,0 +1,77 @@
+.btcGrid {
+    display: grid;
+    height: 88%;
+    grid-template-columns: 1em 58% 1em 39% 1em;
+    grid-template-areas:
+    ". left . right ."
+    ". left . right ."
+    ". left . right ."; 
+}
+
+.btcActions {
+    grid-area: left;
+    margin: 1em 0em;
+}
+
+.walletInfo {
+    grid-area: right;
+    margin: 1em 0em;
+}
+
+button {
+    display: inline-block;
+}
+
+.wallet-header-image {
+    background-image: url('https://image.flaticon.com/icons/svg/189/189709.svg');
+    background-size: cover;
+}
+
+.nav-btn {
+    background-color: rgb(45, 171, 255);
+}
+
+mat-card {
+    background-color: #C5CAE9;
+}
+
+mat-card-content {
+    background-color:#E8EAF6;
+}
+
+p {
+    font-weight: bold;
+}
+
+mat-card-title {
+    font-weight: bolder;
+    margin-top: .5em;
+}
+
+/* Structure for Table */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .cardInfo {
+      width: 75%;
+      margin: auto;
+      font-size: 24px;
+  }

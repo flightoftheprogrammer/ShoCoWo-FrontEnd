@@ -50,6 +50,7 @@ p {
 
 mat-card-title {
     font-weight: bolder;
+    margin-top: .5em;
 }
 
 /* Structure for Table */
@@ -72,5 +73,15 @@ mat-card-title {
   .mat-table {
     overflow: auto;
     max-height: 500px;
+  }
+
+  .btcCurrentPrice{
+    margin-top: .5em;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+  }
+
+  .btcChart{
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
   }
   

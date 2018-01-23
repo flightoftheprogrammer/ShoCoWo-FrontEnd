@@ -6,78 +6,58 @@ import { CurrencyService } from '../../services/currency.service';
 import { ActivatedRoute } from '@angular/router';
 import { WalletService } from '../../services/wallet.service';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { HoldingService } from '../../services/holding.service';
+import { CryptoService } from '../../services/crypto.service';
 
 @Component({
   selector: 'app-wallet',
-  providers: [BackendService, CurrencyService],
+  providers: [BackendService, 
+              CurrencyService],
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.css']
 })
 
-export class WalletComponent implements OnInit, AfterViewInit {
-  wallet
-  constructor(private route: ActivatedRoute, private _backend: BackendService, private _currency: CurrencyService,
-    private WalletService: WalletService) { }
+export class WalletComponent implements OnInit {
+  constructor(private route: ActivatedRoute, private _backend: BackendService, private _walletService: WalletService, private _holding: HoldingService, private _crypto: CryptoService) { }
+
+  walletBalance: number;
+  totalBitcoin: number;
+  currentBitcoinValue: number;
+  totalEthereum: number;
+  currentEthereumValue: number;
+  walletTransactions: any;
 
   ngOnInit() {
-    this.wallet = this.route.snapshot.data["wallet"];
+    this.getWalletTransactions()
+    this._backend.getWallet().subscribe(value => this.walletBalance = value["WalletBalance"])
+    this.getTotalBitcoin()
+    this.getTotalEthereum()
+    this.getBitcoinValue()
+    this.getBitcoinValue()
+    this.getEthereumValue()
   }
-
-  ngAfterViewInit() { }
-
-  getWallet() {
-    this._backend.getWallet().subscribe(
-      value => {
-        console.log('We got an value from the backend!');
-        console.log('That value is:');
-        console.log(value);
-      },
-      err => { console.log('Error in subscription:'); console.log(err); },
-      () => console.log('Subscription completed!')
-    )
-  }
-
-  addNumber() {
-    this._backend.updateWalletBalance(3.5).subscribe(value => console.log(value))
-  }
-
+  
   getWalletTransactions() {
-    this._backend.getWalletTransaction().subscribe(
-      value => {
-        console.log('We got an value from the backend!');
-        console.log('That value is:');
-        console.log(value);
-      },
-      err => { console.log('Error in subscription:'); console.log(err); },
-      () => console.log('Subscription completed!')
-    )
+    this._backend.getWalletTransaction().subscribe(value => this.walletTransactions = value)
   }
 
   addWalletTransaction(amount: number) {
     this._backend.postWalletTransaction(amount).subscribe(value => console.log(value))
   }
 
-  getWalletTransaction(id: number) {
-    this._backend.getWalletTransactionById(id).subscribe(value => console.log(value))
+  getTotalBitcoin() {
+    this._holding.getHoldingByCurrencyId(1).subscribe(value => this.totalBitcoin = value["CryptoHoldingBalance"])
   }
 
-  postCurrency(currencyNameLong: string, currencyNameShort: string) {
-    this._currency.addCurrency(currencyNameLong, currencyNameShort).subscribe(value => console.log(value))
+  getBitcoinValue() {
+    this._crypto.getBtcPrice().subscribe(value => this.currentBitcoinValue = value["BTC"]["USD"])
   }
 
-  getCurrencies() {
-    this._currency.getCurrencies().subscribe(
-      value => {
-        console.log('We got an value from the backend!');
-        console.log('That value is:');
-        console.log(value);
-      },
-      err => { console.log('Error in subscription:'); console.log(err); },
-      () => console.log('Subscription completed!')
-    )
+  getTotalEthereum() {
+    this._holding.getHoldingByCurrencyId(2).subscribe(value => this.totalEthereum = value["CryptoHoldingBalance"])
   }
 
-  getCurrency(id: number) {
-    this._currency.getCurrencyId(id).subscribe(value => console.log(value))
+  getEthereumValue() {
+    this._crypto.getEthPrice().subscribe(value => this.currentEthereumValue = value["ETH"]["USD"])
   }
 }
