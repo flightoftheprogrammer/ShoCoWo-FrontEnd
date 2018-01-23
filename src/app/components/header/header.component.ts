@@ -29,8 +29,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-
-  adminCheck(): boolean {
+  adminCheck() {
     this.authService.adminCheck().subscribe((result: boolean) => this.isAdmin = result)
   }
 
