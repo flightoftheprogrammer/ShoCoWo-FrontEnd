@@ -45,9 +45,11 @@ import { AuthGuard } from './guards/auth.guards';
 import { CryptoService } from './services/crypto.service';
 import { ChartService } from './services/chart.service';
 import { WalletService } from './services/wallet.service';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const routes = [
+  { path: 'admin', component:AdminComponent}
   { path: 'welcome', component:WelcomeComponent },
   { path: 'home', component:HomeComponent },
   { path: 'register', component: RegistrationComponent },
@@ -84,13 +86,14 @@ const routes = [
 
 @NgModule({
   declarations: [
+    AdminComponent,
     AppComponent,
     HeaderComponent,
     HomeComponent,
     RegistrationComponent,
     LoginComponent,
     InfobtcComponent,
-    InfoethComponent,    
+    InfoethComponent,
     BtcComponent,
     EthComponent,
     WalletComponent,
