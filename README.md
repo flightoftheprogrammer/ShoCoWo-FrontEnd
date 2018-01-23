@@ -1,6 +1,6 @@
 # ShoCoWo.Angular v1.0.0
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/watch?v=9XAdmJxFfJY/0.jpg)](https://www.youtube.com/watch?v=9XAdmJxFfJY)
+[![https://i.ytimg.com/vi/9XAdmJxFfJY/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDfcjIflsXjTDjIql34CQXsDWDTSQ](http://img.youtube.com/vi/watch?v=9XAdmJxFfJY/0.jpg)](https://www.youtube.com/watch?v=9XAdmJxFfJY)
 
 ## Description
 This program is a practice trading platform for cryptocurrency. The user can buy or sell cryptocurrency with a practice account funded with “practice money”. ShoCoWo features live updated 30 day graphs. Additionally, prices quoted before the purchase or sell are pulled live from the internet via API. 
