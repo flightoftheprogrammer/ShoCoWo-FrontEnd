@@ -30,13 +30,15 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  adminCheck(): boolean {
+  adminCheck() {
     this.authService.adminCheck().subscribe((result: boolean) => this.isAdmin = result)
   }
 
   logOut() {
     this.isLoggedIn = false;
     this.authService.logout();
+    this.isAdmin = false;
+    this._router.navigate(['/login']);
   }
 
 }
