@@ -13,29 +13,29 @@ ShoCoWo is an internet based application. No installation is required on the loc
 When a user accesses the home page of ShoCoWo they are required to create an account by registering their email as the user name and creating a password. Once registered the user can log into the sight. The new user is provided with $50,000 of “practice money” to buy or sell cryptocurrency to make a purchase the user simply clicks either the “trade” button under Bitcoin or Ethereum images or click one of the buttons at the top in the navigation bar. This will take the user to a buy or sell page where the user simply inserts the amount they wish to buy or sell and clicks the button. Once the purchase or sale is made, the user is redirected to that cryptocurrency’s graph page where the buy or sell is logged on the right side of the screen along with current information regarding the user’s various wallet balances. 
 
 ### Files List
-.vs
- e2e
-src
-.angular-cli.json
-.editorconfig
-.gitignore
-README
-.debug.log
-Karma.confi.js
-Package-lock.json
-Protractor.conf.js
-Tsconfig.json
-Tslint.json
-ShoCoWo.Api
-ShoCoWo.Data
-ShoCoWo.Models
-ShoCoWo.Services
+  .vs
+   e2e
+  src
+  .angular-cli.json
+  .editorconfig
+  .gitignore
+  README
+  .debug.log
+  Karma.confi.js
+  Package-lock.json
+  Protractor.conf.js
+  Tsconfig.json
+  Tslint.json
+  ShoCoWo.Api
+  ShoCoWo.Data
+  ShoCoWo.Models
+  ShoCoWo.Services
 
  ## Credits
-  * Gavin Williams- 	gjosephw24@gmail.com
-  * Jeff Beeson jbeeson.net@gmail.com
-  * Jeremy Warren-	jeremyawarren15@gmail.com
-  * Josh Lohman-	jjosh9708@gmail.com	
+  * Gavin Williams - 	gjosephw24@gmail.com
+  * Jeff Beeson - jbeeson.net@gmail.com
+  * Jeremy Warren -	jeremyawarren15@gmail.com
+  * Josh Lohman -	jjosh9708@gmail.com	
 
 
 Additional credit goes to Eleven Fifty Academy teacher and staff who have helped us in a multitude of ways in creation of this project. 
