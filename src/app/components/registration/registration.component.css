@@ -1,0 +1,19 @@
+.space{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    ". register .";
+    justify-items: center;
+    align-items: end;
+     
+}
+
+
+mat-card {
+    grid-area: register;
+    align-self: center;
+    padding: 6em;
+    margin-top:2em;
+    background-color: #C5CAE9;
+}
