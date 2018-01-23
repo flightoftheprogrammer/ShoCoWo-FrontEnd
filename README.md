@@ -32,10 +32,10 @@ ShoCoWo.Models
 ShoCoWo.Services
 
  ## Credits
--Gavin Williams- 	gjosephw24@gmail.com
--Jeff Beeson jbeeson.net@gmail.com
--Jeremy Warren-	jeremyawarren15@gmail.com
--Josh Lohman-	jjosh9708@gmail.com	
+  * Gavin Williams- 	gjosephw24@gmail.com
+  * Jeff Beeson jbeeson.net@gmail.com
+  * Jeremy Warren-	jeremyawarren15@gmail.com
+  * Josh Lohman-	jjosh9708@gmail.com	
 
 
 Additional credit goes to Eleven Fifty Academy teacher and staff who have helped us in a multitude of ways in creation of this project. 
