@@ -1,6 +1,6 @@
 .btcGrid {
+    height: 88%;
     display: grid;
-    height: 80vh;
     grid-template-columns: 1em 58% 1em 39% 1em;
     grid-template-areas:
     ". left . right ."
@@ -16,6 +16,13 @@
 .walletInfo {
     grid-area: right;
     margin: 1em 0em;
+}
+
+.card {
+    height: 80vh;
+    font-size: 22px;
+    background-color: #C5CAE9;
+    overflow-y: auto;
 }
 
 button {
@@ -36,10 +43,6 @@ button {
     background-color: rgb(45, 171, 255);
 }
 
-mat-card {
-    background-color: #C5CAE9;
-}
-
 mat-card-content {
     background-color:#E8EAF6;
 }
@@ -52,6 +55,16 @@ mat-card-title {
     font-weight: bolder;
     margin-top: .5em;
 }
+
+.btcCurrentPrice{
+    margin-top: .5em;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+  }
+
+  .btcChart{
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+  }
 
 /* Structure for Table */
 .example-container {
@@ -73,15 +86,4 @@ mat-card-title {
   .mat-table {
     overflow: auto;
     max-height: 500px;
-  }
-
-  .btcCurrentPrice{
-    margin-top: .5em;
-    font-weight: bold;
-    border-bottom: 1px solid black;
-  }
-
-  .btcChart{
-    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
-  }
-  
+  }  

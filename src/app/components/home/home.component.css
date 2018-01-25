@@ -40,6 +40,7 @@
     font-size: 22px;
     background-color: #C5CAE9;
     color : #e8edf3;
+    overflow-y: auto;
  }
 
 .titlebar {
