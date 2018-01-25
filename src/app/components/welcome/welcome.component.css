@@ -44,6 +44,7 @@
     height: 80vh;
     font-size: 22px;
     background-color: #C5CAE9;
+    overflow-y: auto;
  }
 
 mat-card-image {
