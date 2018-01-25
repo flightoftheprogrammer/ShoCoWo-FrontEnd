@@ -1,6 +1,6 @@
-.btcGrid {
+.walletGrid {
+    height: 88%;
     display: grid;
-    height: 80vh;
     grid-template-columns: 1em 58% 1em 39% 1em;
     grid-template-areas:
     ". left . right ."
@@ -8,7 +8,7 @@
     ". left . right ."; 
 }
 
-.btcActions {
+.walletActions {
     grid-area: left;
     margin: 1em 0em;
 }
@@ -20,6 +20,13 @@
 
 button {
     display: inline-block;
+}
+
+.card {
+    height: 80vh;
+    font-size: 22px;
+    background-color: #C5CAE9;
+    overflow-y: auto;
 }
 
 .wallet-header-image {

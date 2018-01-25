@@ -1,70 +1,72 @@
 <div class="btcGrid">
-  <mat-card class="btcActions">
-    <mat-card-header>
-      <div mat-card-avatar class="btc-header-image"></div>
-      <mat-card-title>Bitcoin</mat-card-title>
-      <span class="btcCurrentPrice">{{currencyPrice | currency: 'USD': true}}</span>
-    </mat-card-header>
-    <br>
-    <mat-card-content class="btcChart">
-      <div *ngIf="chart">
-        <canvas id="canvas">{{ chart }}</canvas>
+  <div class="btcActions">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="btc-header-image"></div>
+        <mat-card-title>Bitcoin</mat-card-title>
+        <span class="btcCurrentPrice">{{currencyPrice | currency: 'USD': true}}</span>
+      </mat-card-header>
+      <br>
+      <mat-card-content class="btcChart">
+        <div *ngIf="chart">
+          <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+      </mat-card-content>
+
+      <p>Past 30 days of BitCoin Prices</p>
+
+      <mat-card-actions>
+        <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/buy">Buy!</button>
+        <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/sell">Sell!</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="walletInfo">
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="wallet-header-image"></div>
+        <mat-card-title>My Wallet
+          <br>
+          <p>Available funds: {{availableFunds | currency: "USD"}}</p>
+          <p>Total Bitcoins: ₿{{bitcoinTotal}}</p>
+          <p>Current Value: {{(bitcoinTotal * currencyPrice) | currency: "USD"}}</p>
+        </mat-card-title>
+      </mat-card-header>
+
+      <!--start-->
+      <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.Price | currency: "USD"}} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="cryptoTransactionAmount">
+            <mat-header-cell *matHeaderCellDef> Crypto Amount </mat-header-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.CryptoTransactionAmount}} </mat-cell>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="marketValue">
+            <mat-header-cell *matHeaderCellDef> Market Value </mat-header-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.MarketValue}} </mat-cell>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="transactionDate">
+            <mat-header-cell *matHeaderCellDef> Transaction Date</mat-header-cell>
+            <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate | date: 'shortDate'}} </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
       </div>
-    </mat-card-content>
-
-    <p>Past 30 days of BitCoin Prices</p>
-
-    <mat-card-actions>
-      <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/buy">Buy!</button>
-      <button mat-raised-button class="nav-btn" color="primary" routerLink="/btc/sell">Sell!</button>
-    </mat-card-actions>
-  </mat-card>
-
-  <mat-card class="walletInfo">
-    <mat-card-header>
-      <div mat-card-avatar class="wallet-header-image"></div>
-      <mat-card-title>My Wallet
-        <br>
-        <p>Available funds: {{availableFunds | currency: "USD"}}</p>
-        <p>Total Bitcoins: ₿{{bitcoinTotal}}</p>
-        <p>Current Value: {{(bitcoinTotal * currencyPrice) | currency: "USD"}}</p>
-      </mat-card-title>
-    </mat-card-header>
-
-
-    <!--start-->
-    <div class="example-container mat-elevation-z8">
-      <mat-table #table [dataSource]="dataSource">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.Price | currency: "USD"}} </mat-cell>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="cryptoTransactionAmount">
-          <mat-header-cell *matHeaderCellDef> Crypto Amount </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.CryptoTransactionAmount}} </mat-cell>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="marketValue">
-          <mat-header-cell *matHeaderCellDef> Market Value </mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.MarketValue}} </mat-cell>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="transactionDate">
-          <mat-header-cell *matHeaderCellDef> Transaction Date</mat-header-cell>
-          <mat-cell *matCellDef="let transaction"> {{transaction.TransactionDate | date: 'shortDate'}} </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
-    </div>
-
-    <!--end-->
-  </mat-card>
+      <!--end-->
+    </mat-card>
+  </div>
 </div>
