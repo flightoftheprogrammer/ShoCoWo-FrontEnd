@@ -28,20 +28,20 @@ export class InfoethComponent implements OnInit {
 
     this._chart.dailyEthPrice()
       .subscribe(res => {
-        console.log(res)
+        // console.log(res)
 
         let ethPrice = res['Data'].map(res => res.close)
         let alldates = res['Data'].map(res => res.time)
         
-        console.log(ethPrice);
-        console.log(alldates);
+        // console.log(ethPrice);
+        // console.log(alldates);
 
         let ethDates = []
         alldates.forEach((res) => {
           let jsdate = new Date(res * 1000)
-          ethDates.push(jsdate.toLocaleTimeString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
+          ethDates.push(jsdate.toLocaleString( 'en', { year: 'numeric', month:'numeric', day: 'numeric'}))
         })
-        console.log(ethDates)
+        // console.log(ethDates)
 
         this.chart = new Chart( 'canvas' , {
           type: 'line',

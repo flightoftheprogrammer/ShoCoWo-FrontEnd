@@ -1,6 +1,6 @@
 .ethGrid {
+    height: 88%;
     display: grid;
-    height: 80vh;
     grid-template-columns: 1em 58% 1em 39% 1em;
     grid-template-areas:
     ". left . right ."
@@ -18,6 +18,13 @@
     margin: 1em 0em;
 }
 
+.card {
+    height: 80vh;
+    font-size: 22px;
+    background-color: #C5CAE9;
+    overflow-y: auto;
+}
+
 .eth-header-image {
     background-image: url('https://user-images.githubusercontent.com/5788982/27623008-a5e8c956-5bda-11e7-9246-d17205287ad3.png');
     background-size: cover;
@@ -28,13 +35,9 @@
     background-size: cover;
 }
 
-mat-card {
-    background-color: #C5CAE9;
-    font-weight: bold;
-}
-
 mat-card-content {
     background-color:#E8EAF6;
+    font-weight: bold;
 }
 
 p {
